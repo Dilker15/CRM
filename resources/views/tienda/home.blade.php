@@ -18,6 +18,7 @@
    
    
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <title>Tienda de Zapatos </title>
   </head>
   <body>
@@ -30,11 +31,12 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav m-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link " href="#">Home</a>
+                <a class="nav-link " href="#">Varones</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="#">Mujeres</a>
               </li>
+             
            <!--   <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Dropdown
@@ -51,15 +53,20 @@
               </li>-->
             </ul>
             <form class="d-flex">
-              <input class=" px-2 search" type="search" placeholder="Buscar" aria-label="Search">
+              <input class=" px-4 search" type="search" placeholder="Buscar" aria-label="Search">
               <button class="btn0 " type="submit">Buscar</button>
+            </form>
+
+            <form class="d-flex">
+             <!-- <input class=" px-2 search" type="search" placeholder="Buscar" aria-label="Search">-->
+              <button class="btnInicio" type="submit">Login</button>
             </form>
           </div>
         </div>
       </nav>
 
-
-      <section class="main">
+      <!-- TITULO DE LA FOTO--> 
+    <section class="main">
           <div class="container">
               <div class="row py-4">
                   <div class="col-lg-7 pt-5 text-center">
@@ -71,10 +78,10 @@
                   </div>
               </div>
           </div>
-      </section>
+    </section>
 
-
-      <section class="product">
+<!-- INICIO DE CATALOGO CALZADOS MAS COMPRADOS-->
+      <section class="product" id="s1">
         <div class="container py-5">
           <div class="row py-5 ">
               <div class="col-lg-5 m-auto text-center">
@@ -87,7 +94,19 @@
                   <div class="card border-0 bg-light mb-2">
 
                     <div class="card-body">
-                      <img src="./img/woman/z6.png" class="img-fluid" alt="">
+                      <img src="./img/woman/z1.jpg" class="img-fluid img-thumbnail" alt="">
+                      
+                    </div>
+                  </div>
+                  <h6> Zapato 1</h6>
+                  <p>Bs. 149.99</p>
+                </div>
+
+                <div class="col-lg-3 text-center">
+                  <div class="card border-0 bg-light mb-2">
+
+                    <div class=" card-body">
+                      <img src="./img/woman/z5.jpg" class=" img-fluid img-thumbnail " alt="">
                       
                     </div>
                   </div>
@@ -99,19 +118,7 @@
                   <div class="card border-0 bg-light mb-2">
 
                     <div class="card-body">
-                      <img src="./img/man/z5.jpg" class="img-fluid" alt="">
-                      
-                    </div>
-                  </div>
-                  <h6> Zapato 1</h6>
-                  <p>Bs. 149.99</p>
-                </div>
-
-                <div class="col-lg-3 text-center">
-                  <div class="card border-0 bg-light mb-2">
-
-                    <div class="card-body">
-                      <img src="./img/woman/z6.png" class="img-fluid" alt="">
+                      <img src="./img/woman/z2.jpg" class="img-fluid img-thumbnail" alt="">
                       
                     </div>
                   </div>
@@ -124,7 +131,7 @@
 
                     <div class=" card-body">
                     
-                      <img src="./img/woman/z6.png" class="img-fluid" alt="">
+                      <img src="./img/woman/z3.jpg" class="img-fluid img-thumbnail" alt="">
                       
                     </div>
                   </div>
@@ -135,15 +142,344 @@
 
           <div class="row">
             <div class="col-lg-6 text-center m-auto">
-              <button class="btn2">Mostrar más</button>
+              <a href="#shop1" id="boton1" onclick="mostrar();">Mosstrar más</a>
             </div>
           </div>
           
         </div>
       </section>
 
+     
+   <style>
+
+     #shop1{
+       display: none;
+     }
+   </style>
+<!-- 1ER CATALOGO DE ZAPATOS MAS COMPRADOS-->
+  <section class="shop" id="shop1">
+    <div class="container">
+        <div class="row p-5">
+            <div class="col-lg-8 m-auto text-center">
+              <h1>Zapatos para mujeres </h1>
+                <h6 style="color:red;">Zaptos</h6>
+            </div>
+        </div>
+          <div class="row">
+            <div class="col-lg-3 text-center">
+              <div class="card border-0 bg-light mb-2">
+
+                <div class="card-body">
+                  <img src="./img/woman/z1.jpg" class="img-fluid img-thumbnail" alt="">
+                  
+                </div>
+              </div>
+              <h6> Zapato 1</h6>
+              <p>Bs. 149.99</p>
+            </div>
+
+            <div class="col-lg-3 text-center">
+              <div class="card border-0 bg-light mb-2">
+
+                <div class=" card-body">
+                  <img src="./img/woman/z5.jpg" class=" img-fluid img-thumbnail " alt="">
+                  
+                </div>
+              </div>
+              <h6> Zapato 1</h6>
+              <p>Bs. 149.99</p>
+            </div>
+
+            <div class="col-lg-3 text-center">
+              <div class="card border-0 bg-light mb-2">
+
+                <div class="card-body">
+                  <img src="./img/woman/z2.jpg" class="img-fluid img-thumbnail" alt="">
+                  
+                </div>
+              </div>
+              <h6> Zapato 1</h6>
+              <p>Bs. 149.99</p>
+            </div>
+
+            <div class="col-lg-3 text-center">
+              <div class="card border-0 bg-light mb-2">
+
+                <div class=" card-body">
+                
+                  <img src="./img/woman/z3.jpg" class="img-fluid img-thumbnail" alt="">
+                  
+                </div>
+              </div>
+              <h6> Zapato 1</h6>
+              <p>Bs. 149.99</p>
+            </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-lg-3 text-center">
+            <div class="card border-0 bg-light mb-2">
+
+              <div class="card-body">
+                <img src="./img/woman/z1.jpg" class="img-fluid img-thumbnail" alt="">
+                
+              </div>
+            </div>
+            <h6> Zapato 1</h6>
+            <p>Bs. 149.99</p>
+          </div>
+
+          <div class="col-lg-3 text-center">
+            <div class="card border-0 bg-light mb-2">
+
+              <div class=" card-body">
+                <img src="./img/woman/z5.jpg" class=" img-fluid img-thumbnail " alt="">
+                
+              </div>
+            </div>
+            <h6> Zapato 1</h6>
+            <p>Bs. 149.99</p>
+          </div>
+
+          <div class="col-lg-3 text-center">
+            <div class="card border-0 bg-light mb-2">
+
+              <div class="card-body">
+                <img src="./img/woman/z2.jpg" class="img-fluid img-thumbnail" alt="">
+                
+              </div>
+            </div>
+            <h6> Zapato 1</h6>
+            <p>Bs. 149.99</p>
+          </div>
+
+          <div class="col-lg-3 text-center">
+            <div class="card border-0 bg-light mb-2">
+
+              <div class=" card-body">
+              
+                <img src="./img/woman/z3.jpg" class="img-fluid img-thumbnail" alt="">
+                
+              </div>
+            </div>
+            <h6> Zapato 1</h6>
+            <p>Bs. 149.99</p>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-lg-6 text-center m-auto">
+            <a  href="#s1"  onclick="ocultar();">Ocultar Catálogo</a>
+          </div>
+        </div>
+  </div>
+</section>
+
+<!-- INICIO DE CATALOGO CALZADOS MAS COMPRADOS-->
+<section class="product" id="s1">
+  <div class="container py-5">
+    <div class="row py-5 ">
+        <div class="col-lg-5 m-auto text-center">
+            <h1> Zapatos para mujeres</h1>
+            <h6 style="color:red;">Zapatos casuales</h6>
+        </div>
+    </div>
+     <div class="row">
+          <div class="col-lg-3 text-center">
+            <div class="card border-0 bg-light mb-2">
+
+              <div class="card-body">
+                <img src="./img/woman/z1.jpg" class="img-fluid img-thumbnail" alt="">
+                
+              </div>
+            </div>
+            <h6> Zapato 1</h6>
+            <p>Bs. 149.99</p>
+          </div>
+
+          <div class="col-lg-3 text-center">
+            <div class="card border-0 bg-light mb-2">
+
+              <div class=" card-body">
+                <img src="./img/woman/z5.jpg" class=" img-fluid img-thumbnail " alt="">
+                
+              </div>
+            </div>
+            <h6> Zapato 1</h6>
+            <p>Bs. 149.99</p>
+          </div>
+
+          <div class="col-lg-3 text-center">
+            <div class="card border-0 bg-light mb-2">
+
+              <div class="card-body">
+                <img src="./img/woman/z2.jpg" class="img-fluid img-thumbnail" alt="">
+                
+              </div>
+            </div>
+            <h6> Zapato 1</h6>
+            <p>Bs. 149.99</p>
+          </div>
+
+          <div class="col-lg-3 text-center">
+            <div class="card border-0 bg-light mb-2">
+
+              <div class=" card-body">
+              
+                <img src="./img/woman/z3.jpg" class="img-fluid img-thumbnail" alt="">
+                
+              </div>
+            </div>
+            <h6> Zapato 1</h6>
+            <p>Bs. 149.99</p>
+          </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 text-center m-auto">
+        <a href="#shop1" id="boton1" onclick="mostrar();">Mosstrar más</a>
+      </div>
+    </div>
+    
+  </div>
+</section>
 
 
+<style>
+
+#shop1{
+ display: none;
+}
+</style>
+
+<!-- 1ER CATALOGO DE ZAPATOS MAS COMPRADOS-->
+<section class="shop" id="shop1">
+  <div class="container">
+      <div class="row p-5">
+          <div class="col-lg-8 m-auto text-center">
+            <h1>Zapatos para mujeres </h1>
+              <h6 style="color:red;">Zaptos</h6>
+          </div>
+      </div>
+        <div class="row">
+          <div class="col-lg-3 text-center">
+            <div class="card border-0 bg-light mb-2">
+
+              <div class="card-body">
+                <img src="./img/woman/z1.jpg" class="img-fluid img-thumbnail" alt="">
+                
+              </div>
+            </div>
+            <h6> Zapato 1</h6>
+            <p>Bs. 149.99</p>
+          </div>
+
+          <div class="col-lg-3 text-center">
+            <div class="card border-0 bg-light mb-2">
+
+              <div class=" card-body">
+                <img src="./img/woman/z5.jpg" class=" img-fluid img-thumbnail " alt="">
+                
+              </div>
+            </div>
+            <h6> Zapato 1</h6>
+            <p>Bs. 149.99</p>
+          </div>
+
+          <div class="col-lg-3 text-center">
+            <div class="card border-0 bg-light mb-2">
+
+              <div class="card-body">
+                <img src="./img/woman/z2.jpg" class="img-fluid img-thumbnail" alt="">
+                
+              </div>
+            </div>
+            <h6> Zapato 1</h6>
+            <p>Bs. 149.99</p>
+          </div>
+
+          <div class="col-lg-3 text-center">
+            <div class="card border-0 bg-light mb-2">
+
+              <div class=" card-body">
+              
+                <img src="./img/woman/z3.jpg" class="img-fluid img-thumbnail" alt="">
+                
+              </div>
+            </div>
+            <h6> Zapato 1</h6>
+            <p>Bs. 149.99</p>
+          </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-3 text-center">
+          <div class="card border-0 bg-light mb-2">
+
+            <div class="card-body">
+              <img src="./img/woman/z1.jpg" class="img-fluid img-thumbnail" alt="">
+              
+            </div>
+          </div>
+          <h6> Zapato 1</h6>
+          <p>Bs. 149.99</p>
+        </div>
+
+        <div class="col-lg-3 text-center">
+          <div class="card border-0 bg-light mb-2">
+
+            <div class=" card-body">
+              <img src="./img/woman/z5.jpg" class=" img-fluid img-thumbnail " alt="">
+              
+            </div>
+          </div>
+          <h6> Zapato 1</h6>
+          <p>Bs. 149.99</p>
+        </div>
+
+        <div class="col-lg-3 text-center">
+          <div class="card border-0 bg-light mb-2">
+
+            <div class="card-body">
+              <img src="./img/woman/z2.jpg" class="img-fluid img-thumbnail" alt="">
+              
+            </div>
+          </div>
+          <h6> Zapato 1</h6>
+          <p>Bs. 149.99</p>
+        </div>
+
+        <div class="col-lg-3 text-center">
+          <div class="card border-0 bg-light mb-2">
+
+            <div class=" card-body">
+            
+              <img src="./img/woman/z3.jpg" class="img-fluid img-thumbnail" alt="">
+              
+            </div>
+          </div>
+          <h6> Zapato 1</h6>
+          <p>Bs. 149.99</p>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-lg-6 text-center m-auto">
+          <a  href="#s1"  onclick="ocultar();">Ocultar Catálogo</a>
+        </div>
+      </div>
+</div>
+</section>
+
+<!-- JAVASCRIPT-->
+  <script type="text/javascript">
+  function mostrar(){
+    document.getElementById('shop1').style.display ='block';
+  }
+  function ocultar(){
+    document.getElementById('shop1').style.display ='none';
+  }
+  </script>
 
 
     <!-- Optional JavaScript; choose one of the two! -->
