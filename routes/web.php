@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Cliente1Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+
+//PRINCIPAL-LOGIN-REGISTER
+/*Route::get('/',function(){
+    return view('tienda.home');
+})->name('tienda');*/
+
+
+Route::get('/',[Cliente1Controller::class,'catalogo'])->name('tienda');
+Route::get('registro',[Cliente1Controller::class,'index'])->name('registro');
+
+Route::get('perfil',[Cliente1Controller::class,'perfil'])->name('perfil');
+
+Route::get('/LoginAdmin', function () {
     return view('auth.login');
 });
 
@@ -27,6 +40,14 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/home',function(){
-    return view('tienda.home');
+//TIENDA
+//PRINCIPAL
+
+//PRINCIPAL-VARONES
+Route::get('/hombres',function(){
+    return view('hombres.home');
+});
+//PRINCIPAL-MUJERES
+Route::get('/mujeres',function(){
+    return view('mujeres.home');
 });

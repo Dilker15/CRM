@@ -33,29 +33,12 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ">
-         //home
+         
                 <a class="nav-link " href="#">Varones</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Mujeres</a>
-
-                <a class="nav-link " href="#">niños</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">niñas</a>  
-// hombres
-                <a class="nav-link " href="#">mujeres</a>
-              </li>
-              <a class="nav-link " href="#">niños</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">niñas</a>  
-//mujeres
-                <a class="nav-link " href="#">Varones</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Mujeres</a>
-
 
             </ul>
         <!--    <form class="d-flex">
@@ -171,55 +154,23 @@
               </div>
           </div>
            <div class="row">
-                <div class="col-lg-3 text-center">
-                  <div class="card border-0 bg-light mb-2">
 
-                    <div class="card-body">
-                      <img src="./img/woman/z1.jpg" class="img-fluid img-thumbnail" alt="">
-                      
-                    </div>
-                  </div>
-                  <h6> Zapato 1</h6>
-                  <p>Bs. 149.99</p>
-                </div>
+            @foreach ($calzados as $calzado)
+            <div class="col-lg-3 text-center">
+              <div class="card border-0 bg-light mb-2">
 
-                <div class="col-lg-3 text-center">
-                  <div class="card border-0 bg-light mb-2">
-
-                    <div class=" card-body">
-                      <img src="./img/woman/z5.jpg" class=" img-fluid img-thumbnail " alt="">
-                      
-                    </div>
-                  </div>
-                  <h6> Zapato 1</h6>
-                  <p>Bs. 149.99</p>
-                </div>
-
-                <div class="col-lg-3 text-center">
-                  <div class="card border-0 bg-light mb-2">
-
-                    <div class="card-body">
-                      <img src="./img/woman/z2.jpg" class="img-fluid img-thumbnail" alt="">
-                      
-                    </div>
-                  </div>
+                <div class="card-body">
+                  <img src="./img/prueba/{{$calzado->imagen}}" class="img-fluid img-thumbnail" alt="">
                   
-                  <h6> Zapato 1</h6>
-                  <p>Bs. 149.99</p>
                 </div>
+              </div>
+              <h6> {{$calzado->marca}}</h6>
+              <h6> {{$calzado->detalle}}</h6>
 
-                <div class="col-lg-3 text-center">
-                  <div class="card border-0 bg-light mb-2">
-
-                    <div class=" card-body">
-                    
-                      <img src="./img/woman/z3.jpg" class="img-fluid img-thumbnail" alt="">
-                      
-                    </div>
-                  </div>
-                  <h6> Zapato 1</h6>
-                  <p>Bs. 149.99</p>
-                </div>
+              <p> {{$calzado->precio}}</p>
+            </div>
+            @endforeach
+               
           </div>
 
           <div class="row">
@@ -230,157 +181,56 @@
           
         </div>
       </section>
+<!-- * ************************************************************************************-->
 
-     
-   
+
+<!-- INICIO DE CATALOGO CALZADOS MUJERES-->
+      <section class="product" id="s1">
+        <div class="container py-5">
+          <div class="row py-5 ">
+              <div class="col-lg-5 m-auto text-center">
+                <label class="fuente2" href="#">Para mujeres</label>
+                  <h6 style="color:red;"> Destacados</h6>
+              </div>
+          </div>
+           <div class="row">
+
+            @foreach ($calzados2 as $calzado2)
+            <div class="col-lg-3 text-center">
+              <div class="card border-0 bg-light mb-2">
+
+                <div class="card-body">
+                  <img src="./img/womanh/{{$calzado2->imagen}}" class="img-fluid img-thumbnail" alt="">
+                  
+                </div>
+              </div>
+              <h6> {{$calzado2->marca}}</h6>
+              <h6> {{$calzado2->detalle}}</h6>
+
+              <p> {{$calzado2->precio}}</p>
+            </div>
+            @endforeach
+               
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6 text-center m-auto">
+              <a class="b3"href="#shop1" id="boton1" onclick="mostrar();">Mostrar más</a>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+ <!-- * ************************************************************************************-->
 
   
 
-<!-- INICIO DE CATALOGO CALZADOS MUJERES-->
-<section class="product" id="s2">
-  <div class="container py-5">
-    <div class="row py-5 ">
-        <div class="col-lg-5 m-auto text-center">
-          <label class="fuente2" href="#">Calzados para mujeres</label>
-            <h6 style="color:red;">Calzados mas destacados</h6>
-        </div>
-    </div>
-     <div class="row">
-          <div class="col-lg-3 text-center">
-            <div class="card border-0 bg-light mb-2">
 
-              <div class="card-body">
-                <img src="./img/woman/z1.jpg" class="img-fluid img-thumbnail" alt="">
-                
-              </div>
-            </div>
-            <h6> Zapato 1</h6>
-            <p>Bs. 149.99</p>
-          </div>
-
-          <div class="col-lg-3 text-center">
-            <div class="card border-0 bg-light mb-2">
-
-              <div class=" card-body">
-                <img src="./img/woman/z5.jpg" class=" img-fluid img-thumbnail " alt="">
-                
-              </div>
-            </div>
-            <h6> Zapato 1</h6>
-            <p>Bs. 149.99</p>
-          </div>
-
-          <div class="col-lg-3 text-center">
-            <div class="card border-0 bg-light mb-2">
-
-              <div class="card-body">
-                <img src="./img/woman/z2.jpg" class="img-fluid img-thumbnail" alt="">
-                
-              </div>
-            </div>
-            <h6> Zapato 1</h6>
-            <p>Bs. 149.99</p>
-          </div>
-
-          <div class="col-lg-3 text-center">
-            <div class="card border-0 bg-light mb-2">
-
-              <div class=" card-body">
-              
-                <img src="./img/woman/z3.jpg" class="img-fluid img-thumbnail" alt="">
-                
-              </div>
-            </div>
-            <h6> Zapato 1</h6>
-            <p>Bs. 149.99</p>
-          </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-6 text-center m-auto">
-        <a  class="b1"href="#shop1" id="boton1" onclick="mostrar();">Mostrar más</a>
-      </div>
-    </div>
-    
-  </div>
-</section>
-
-<!-- INICIO DE CATALOGO CALZADOS VARONES-->
-<section class="product" id="s3">
-  <div class="container py-5">
-    <div class="row py-5 ">
-        <div class="col-lg-5 m-auto text-center">
-          <label class="fuente1" href="#">Calzados para varones</label>
-            <h6 style="color:red;">Calzados populares</h6>
-        </div>
-    </div>
-     <div class="row">
-          <div class="col-lg-3 text-center">
-            <div class="card border-0 bg-light mb-2">
-
-              <div class="card-body">
-                <img src="./img/woman/z1.jpg" class="img-fluid img-thumbnail" alt="">
-                
-              </div>
-            </div>
-            <h6> Zapato 1</h6>
-            <p>Bs. 149.99</p>
-          </div>
-
-          <div class="col-lg-3 text-center">
-            <div class="card border-0 bg-light mb-2">
-
-              <div class=" card-body">
-                <img src="./img/woman/z5.jpg" class=" img-fluid img-thumbnail " alt="">
-                
-              </div>
-            </div>
-            <h6> Zapato 1</h6>
-            <p>Bs. 149.99</p>
-          </div>
-
-          <div class="col-lg-3 text-center">
-            <div class="card border-0 bg-light mb-2">
-
-              <div class="card-body">
-                <img src="./img/woman/z2.jpg" class="img-fluid img-thumbnail" alt="">
-                
-              </div>
-            </div>
-            <h6> Zapato 1</h6>
-            <p>Bs. 149.99</p>
-          </div>
-
-          <div class="col-lg-3 text-center">
-            <div class="card border-0 bg-light mb-2">
-
-              <div class=" card-body">
-              
-                <img src="./img/woman/z3.jpg" class="img-fluid img-thumbnail" alt="">
-                
-              </div>
-            </div>
-            <h6> Zapato 1</h6>
-            <p>Bs. 149.99</p>
-          </div>
-    </div>
-
-    <section>
-
-
-//niños
 
 
 
-    </section>
-    <div class="row">
-      <div class="col-lg-6 text-center m-auto">
-        <a class="b2"href="#shop1" id="boton1" onclick="mostrar();">Mostrar más</a>
-      </div>
-    </div>
-    
-  </div>
-</section>
+<!-- INICIO DE CATALOGO CALZADOS VARONES-->
+
 
 
 

@@ -99,6 +99,22 @@ html{
 .h1{
     font-weight: 700;
 }
+.fuente1{
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 3rem;
+    color:rgb(43, 33, 187);
+}
+
+.fuente2{
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 3rem;
+    color:rgb(204, 57, 138);
+}
+.fuente3{
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 3rem;
+    color:rgb(0, 0, 0);
+}
 .imagen_fija{
   
     width: 100%;
@@ -115,4 +131,96 @@ html{
 
 .shop {
     scroll-behavior: smooth;
+}
+
+/*TARJETA FORMULARIO*/
+.tarjeta{
+   display:flex;
+   flex-direction:column;
+    margin-top: 20px;
+    margin-left: 5cm;
+    justify-content:space-between;
+    width:420px;
+   
+    border: 1px solid lightgray;
+    box-shadow: 2px 2px 4px 10px #d3d3d3d1;
+    border-radius:15px;
+    font-family: sans-serif;
+}
+
+
+.titulo{
+    font-size: 34px;
+    padding: 10px 10px 0 10px;
+    background-color: rgb(240, 240, 186);
+    color:rgb(202, 159, 159);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.cuerpo{
+    padding: 5px 25px 25px 10px ;
+    margin-top: 10px;
+   
+    background-color: rgb(236, 247, 248);
+    }
+.form1{
+    text-align: center;
+    padding: 0px 0px 0px 80px ;
+    margin:20px 0;
+}
+
+
+
+
+    .tarjeta:hover{
+        box-shadow: -2px -1px 25px -4px rgba(0,0,0,0.75);
+        -webkit-box-shadow : -2px -1px 25px -4px rgba(0,0,0,0.75);
+        -moz-box-shadow: -2px -1px 25px -4px rgba(0,0,0,0.75);
+        transition: 0.5s;
+    }
+
+    .tarjeta1{
+        display:flex;
+        flex-direction:column;
+         margin-top: -8.35cm;
+         margin-left: 20cm;
+         justify-content:space-between;
+         width:420px;
+         height: auto;
+         border: 1px solid lightgray;
+         box-shadow: 2px 2px 4px 10px #d3d3d3d1;
+         border-radius:15px;
+         font-family: sans-serif;
+     }
+     .cuerpo1{
+        padding: 5px 25px 15px 10px ;
+        margin-top: 10px;
+       
+        background-color: rgb(236, 247, 248);
+        }
+    .form2{
+        text-align: center;
+        padding: 0px 0px 0px 80px ;
+        margin:20px 0;
+    }
+
+/*******************/ 
+.news{
+    background-color: black;
+    color:white;
+}
+.btn3{
+    height: 45px;
+    width: 100%;
+    background:white ;
+    margin-left: -10px;
+    border: 2px solid white;
+    font-weight: 600;
+}
+.letraabajo{
+    font-size: 4rem;
+    font-family: 'Rubik Wet Paint', cursive;
+    color:rgb(255, 255, 255);
+}
+.letraabajo:hover{
+    color: yellowgreen;
 }
