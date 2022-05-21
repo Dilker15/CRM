@@ -30,3 +30,12 @@ Route::middleware([
 Route::get('/home',function(){
     return view('tienda.home');
 });
+
+Route::get('/hombres',function(){
+    return view('tienda.hombres');
+});
+
+Route::get('/mujeres',function(){
+    return view('tienda.mujeres');
+});
+
