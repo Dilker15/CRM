@@ -26,19 +26,3 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-
-Route::get('/home',function(){
-    return view('tienda.home');
-});
-<<<<<<< HEAD
-
-Route::get('/hombres',function(){
-    return view('tienda.hombres');
-});
-
-Route::get('/mujeres',function(){
-    return view('tienda.mujeres');
-});
-
-=======
->>>>>>> e5c1c52611e8334d94db754e8f1def13920731ab
