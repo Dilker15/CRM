@@ -9,6 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
@@ -17,6 +19,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -27,7 +30,17 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id',
+        'persona_id',
+        'tipo_id'
     ];
+
+
+    public function role(){
+
+        return $this->hasOne(Role::class,'id','role_id');
+    }
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -58,4 +71,6 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-}
+
+
+}  

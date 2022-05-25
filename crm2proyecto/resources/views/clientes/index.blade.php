@@ -66,7 +66,7 @@
                                 {{$cliente->nombre}}
                             </td>
                             <td>
-                                {{$cliente->apellidos}}
+                                {{$cliente->apellido}}
                             </td>
                             <td>
                                 {{$cliente->email}}

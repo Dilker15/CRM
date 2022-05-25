@@ -11,7 +11,7 @@
         <label for="apellidos">
             Apellidos:
         </label>
-        <input type="text" name="apellidos" id="apellidos" value="{{isset($cliente)? $cliente->apellidos :''}}" class="form form-control">
+        <input type="text" name="apellido" id="apellido" value="{{isset($cliente)? $cliente->apellido :''}}" class="form form-control">
     </div>
 
     <div class="col-md-4">

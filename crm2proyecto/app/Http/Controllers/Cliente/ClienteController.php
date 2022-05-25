@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Cliente;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cliente\Cliente;
+use App\Models\User;
+use Spatie\Permission\Models\Role;
 class ClienteController extends Controller
 {
     /**
@@ -36,9 +38,37 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         $inputs = $request->all();
-        Cliente::create($inputs);
+        $cliente = Cliente::create($inputs);
+        $email = $inputs['email'];
+        $rol_id=2;
+        $contraseña = $inputs['nombre'].'123';
+        $persona_id= $cliente->id;
+        $this->crearUsuario($inputs['nombre'],$email,$contraseña,$rol_id,$persona_id);
+        
         return redirect()->route('clientes.index')->with('success','Cliente creado con Exito');
+    }   
+
+    private function crearUsuario($name,$email,$ci,$rol_id,$persona_id){
+
+        $usuario = User::create([
+            'name' => $name,
+            'email'=> $email,
+            'password' => \bcrypt($ci),
+            'role_id' => $rol_id,
+            'tipo_id' => 2,
+            'persona_id' =>$persona_id,
+
+        ]);
+        $rol = Role::find($rol_id);
+        $usuario->assignRole($rol);
+
+
     }
+
+
+
+
+
 
     /**
      * Display the specified resource.
@@ -72,6 +102,13 @@ class ClienteController extends Controller
     public function update(Request $request,Cliente $cliente)
     {
             $inputs = $request->all();
+            $usuario = User::where('tipo_id',2)->where('persona_id',$cliente->id)->first();
+            $usuario->update([
+                'email' => $inputs['email'],
+                'name' =>$inputs['nombre'],
+                'password' => \bcrypt($inputs['nombre'].'123'),
+            ]);
+
             $cliente->update($inputs);
             return redirect()->route('clientes.index')->with('success','Cliente Editado correctamente');
     }

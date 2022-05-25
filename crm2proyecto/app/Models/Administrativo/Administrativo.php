@@ -21,6 +21,8 @@ class Administrativo extends Model
         'estado',
         'sexo',
         'fecha_nacimiento',
+        'role_id',
+        'tipo_id',
     ];
 
 

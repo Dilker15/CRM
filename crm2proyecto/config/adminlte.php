@@ -255,7 +255,7 @@ return [
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'Administrativos',
+            'text' => 'Personal Administrativo',
             'route'  => 'administrativos.index',
             'icon' => 'fas fa-fw fa-user',
         ],
@@ -263,16 +263,20 @@ return [
             'text' => 'Clientes',
             'route'  => 'clientes.index',
             'icon' => 'fas fa-fw fa-lock',
+            //'can' => 'clientes.index', // ASIGNACION DEL PERMISO
         ],
+        
         [
-            'text'    => 'multilevel',
+            'text'    => 'Roles | Permisos',
             'icon'    => 'fas fa-fw fa-share',
+            'can' => 'Ver-compras',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Roles',
+                    'route'  => 'roles.index',
+                    'icon' => 'fa fa-glass'
                 ],
-                [
+                /*[
                     'text'    => 'level_one',
                     'url'     => '#',
                     'submenu' => [
@@ -295,10 +299,11 @@ return [
                             ],
                         ],
                     ],
-                ],
+                ],*/
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Permisos',
+                    'route'  => 'permisos.index',
+                    'icon'  => 'fa fa-pencil'
                 ],
             ],
         ],

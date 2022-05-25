@@ -1,3 +1,17 @@
+{{-- @if(isset($administrativo) == null)
+<div class="row">
+    <div class="col-md-6">
+        <label for="rol">
+            Rol
+        </label>
+        <select name="rol_id" id="rol_id" class="form form-control">
+            <option value="1">ADMINISTRATIVO</option>
+            <option value="2">CLIENTE</option>
+        </select>
+    </div>
+</div>
+@endisset --}}
+
 <div class="row">
     <div class="col-md-4">
         <label for="nombre">
