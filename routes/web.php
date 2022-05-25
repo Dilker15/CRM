@@ -1,6 +1,8 @@
 <?php
 
+
 use App\Http\Controllers\Cliente1Controller;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+
 //PRINCIPAL-LOGIN-REGISTER
 /*Route::get('/',function(){
     return view('tienda.home');
@@ -26,9 +29,17 @@ Route::get('registro',[Cliente1Controller::class,'index'])->name('registro');
 
 Route::get('perfil',[Cliente1Controller::class,'perfil'])->name('perfil');
 
+
+
 Route::get('/LoginAdmin', function () {
     return view('auth.login');
 });
+
+/*Route::get('/', function () {
+
+
+    return view('auth.login');
+});*/
 
 Route::middleware([
     'auth:sanctum',
@@ -40,14 +51,27 @@ Route::middleware([
     })->name('dashboard');
 });
 
+
 //TIENDA
 //PRINCIPAL
 
 //PRINCIPAL-VARONES
-Route::get('/hombres',function(){
-    return view('hombres.home');
-});
+Route::get('/hombres',[Cliente1Controller::class,'ListarCalzadosHombres'])->name('catalogoHombres');
+
 //PRINCIPAL-MUJERES
-Route::get('/mujeres',function(){
-    return view('mujeres.home');
+Route::get('/mujeres',[Cliente1Controller::class,'ListarCalzadosMujeres'])->name('catalogoMujeres');
+//DETALLE CALZADO
+//Route::get('/detalle/{id}/{carpeta}',function($id,$carpeta){
+// return view('tienda.mujeres',compact('id,carpeta'));
+//})->name('listarcalzado');
+
+Route::get('/detalle/{id}/{carpeta}',[Cliente1Controller::class,'ListarCalzado'])->name('listarcalzado');
+
+//Route::get('/detalle/{id}/{carpeta}',[Cliente1Controller::class,'ListarCalzado1'])->name('listarcalzado1');
+
+Route::get('/home',function(){
+    return view('tienda.home');
 });
+
+
+

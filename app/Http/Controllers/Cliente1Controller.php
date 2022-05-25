@@ -26,24 +26,68 @@ class Cliente1Controller extends Controller
         //calzados destacados
         $calzados = DB::table('calzado')
                     //->groupBy('marca','precio','stock','estado','detalle','imagen')
-                    ->where('estado','=','Promocion')->get();
+                   ->where('estado','=','Promocion')->get();
+
+    //calzados para mujeres
+        $calzados1 = DB::table('calzado')
+                  
+                  //  ->where('estado','=','Destacado'  )->get();
+                      ->where([
+                        ['estado','=','Destacado'],
+                        ['tipo', '=','mujer'],
+                      ])->get();
 
     //calzados para hombres
-        $calzados1 = DB::table('calzado')
-                    //->groupBy('marca','precio','stock','estado','detalle','imagen')
-                    ->where('tipo','=','hombre')->get();
-
-                    //calzados para muujeres
-        $calzados2 = DB::table('calzado')
-        //->groupBy('marca','precio','stock','estado','detalle','imagen')
-        ->where('tipo','=','mujer')->get();
+        $calzados2 = DB::table('calzado') 
+                  //  ->where('tipo','=','hombre')->get();
+                  ->where([
+                    ['estado','=','Destacado'],
+                    ['tipo', '=','hombre'],
+                  ])->get();
 
       return view('tienda.home1',compact('calzados','calzados1','calzados2'));
     }
-   
-    public function hombres(){
 
+
+
+    public function ListarCalzadosHombres(){
+        $calzados2 = DB::table('calzado')->where('tipo','=','hombre')->get();   
+        $niños =     DB::table('calzado') ->where('tipo','=','kidman')->get();
+   
+
+        return view('tienda.hombres',compact('calzados2','niños'));
     }
+   
+
+    public function ListarCalzadosMujeres(){
+      $calzados1 = DB::table('calzado')->where('tipo','=','mujer')->get();   
+      $niñas =     DB::table('calzado') ->where('tipo','=','kidwoman')->get();
+ 
+
+      return view('tienda.mujeres',compact('calzados1','niñas'));
+  }
+
+
+    
+     public function ListarCalzado($id,$carpeta){
+       $calzado = Calzado::find($id);
+     //   $c= $carpeta;
+        return view('tienda.detalle',compact('calzado','carpeta'));
+     }
+
+     public function ListarCalzado1($id,$carpeta){
+      $c = Calzado::find($id);
+    //   $c= $carpeta;
+       return view('tienda.hombres',compact('c','carpeta'));
+    }
+
+     public function MostrarCalzado($id){
+         $ide= $id;
+        return view('tienda.detalle',compact('ide'));
+     }
+
+
+
     public function index()
     {
      

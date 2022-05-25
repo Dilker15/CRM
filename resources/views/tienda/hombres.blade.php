@@ -19,7 +19,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
-   
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <title>Tienda de Zapatos </title>
   </head>
@@ -33,23 +32,9 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav m-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link " href="{{route('catalogoHombres')}}">hombres</a>
+                <a class="nav-link " href="{{route('catalogoMujeres')}}">mujeres</a>
               </li>
-             
-           <!--   <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-              </li>-->
+
             </ul>
             <style>
               .b{
@@ -85,83 +70,138 @@
       </nav>
 
 
-      <section class="calmujeres" id="s2">
+      <section class="calhombres" id="varones">
         <div class="container py-5">
           <div class="row py-5 ">
               <div class="col-lg-5 m-auto text-center">
-                <label class="fuente2" href="#">Para mujeres</label>
+                <label class="fuente1" href="#">Para Varones</label>
                   <h6 style="color:red;"> Destacados</h6>
               </div>
           </div>
            <div class="row">
-
-            @foreach ($calzados1 as $calzado1)
+      
+            @foreach ($calzados2 as $calzado2)
+           
             <div class="col-lg-3 text-center">
               <div class="card border-0 bg-light mb-2">
-
                 <div class="card-body">
-                  <img src="./img/woman/{{$calzado1->imagen}}" class="imagen_fija img-fluid img-thumbnail" alt="">
-                  
+                  <img src="./img/man/{{$calzado2->imagen}}" class="imagen_fija img-fluid img-thumbnail" alt="">            
                 </div>
               </div>
-              <h6> {{$calzado1->marca}}</h6>
-              <h6> {{$calzado1->detalle}}</h6>
-
-              <p> Bs.  {{$calzado1->precio}}</p>
+              <h6> {{$calzado2->marca}}</h6>
+              <h6> {{$calzado2->detalle}}</h6>
+              
+              <p> Bs.  {{$calzado2->precio}}</p>
               <?php
-              $carpeta = "woman";
+              $carpeta = "man";
               ?>
-        <a type ="button" class="btn btn-success" href="{{route('listarcalzado',['id' =>$calzado1->id ,'carpeta'=>$carpeta] )}}">Agregar Carrito</a>
-      </div>
+              <button type ="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" >Agregar Carrito</button>
+             
+              <br>    <br>    <br>    <br>
+            </div>
+
             @endforeach
-               
+         
           </div>
-<br>
-    
+          <br>
+        
           
         </div>
       </section>
       
-
-      <section class="calniñas" id="s3">
+      <section class="calniños" id="niños">
         <div class="container py-5">
           <div class="row py-5 ">
               <div class="col-lg-5 m-auto text-center">
-                <label class="fuente2" href="#">Para niñas</label>
+                <label class="fuente1" href="#">Para Niños</label>
                   <h6 style="color:red;"> Destacados</h6>
               </div>
           </div>
            <div class="row">
-
-            @foreach ($niñas as $niña)
+      
+            @foreach ($niños as $niño)
+           
             <div class="col-lg-3 text-center">
               <div class="card border-0 bg-light mb-2">
-
                 <div class="card-body">
-                  <img src="./img/kidwoman/{{$niña->imagen}}" class="imagen_fija img-fluid img-thumbnail" alt="">
-                  
+                  <img src="./img/kidman/{{$niño->imagen}}" class="imagen_fija img-fluid img-thumbnail" alt="">            
                 </div>
               </div>
-              <h6> {{$niña->marca}}</h6>
-              <h6> {{$niña->detalle}}</h6>
-
-              <p> Bs. {{$niña->precio}}</p>
+        
+              <h6> {{$niño->marca}}</h6>
+              <h6> {{$niño->detalle}}</h6>
+              
+              <p> Bs.  {{$niño->precio}}</p>
               <?php
-              $carpeta = "kidwoman";
+              $c= $niño; 
+              $carpeta = "kidman";
               ?>
-        <a type ="button" class="btn btn-success" href="{{route('listarcalzado',['id' =>$niña->id ,'carpeta'=>$carpeta] )}}">Agregar Carrito</a>
-      </div>
+       <a type="button" class=" btn btn-primary  "  href="" data-toggle="modal"  
+       data-target ="#ModalCalzado" onclick="selCazado("$niño->id","$niño->marca",$niño->detalle,$niño->precio,'$niño->imagen')"
+     
+       >Agregar a carrito</a>
+             <br>    <br>    <br>    <br>
+            </div>
             @endforeach
-               
+         
           </div>
-<br>
-    
+          <br>
+        
           
         </div>
       </section>
-      
+              <!-- Modal -->
+              <div  class="modal fade" id="ModalCalzado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" >
+                       
+                      <table>
+                        <tr>
+                           <th rowspan="4"><img id="mi_imagen" src="" width="200" height="170"></th>
+                          
+    
+                            <th id="mthMarca"></th>
+                        </tr>
+                        <tr>
+                            <td align="justify" id="mthDetalle"></td>
+                        </tr>
+                        <tr>
+                            <td align="right" id="mthPrecio">Bs. </td>
+                        </tr>
+                        <tr>
+                            <td align="right">Ingrese cantidad:
+                                <input type="number" min="1" max ="100" value="1" name="txtCant"></td>
+                        </tr>
+                        <tr>
+                            <th align ="right">
+                           <button type ="button" class="btn btn-secondary">Cerrar</button>
+                           <button type ="button" class="btn btn-primary">Agregar a Carrito</button>
+                            </th>
+                        </tr>
+                    </table> 
 
-  
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+         
+ <script>
+
+selcalzado = function(idCalzado,marca,detalle,precio,imagen){
+	$("#mi_imagen").attr("src","./img/kidman/"imagen);
+ 
+};
+ </script>
 
 
     <!-- Optional JavaScript; choose one of the two! -->

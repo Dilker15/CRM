@@ -34,10 +34,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ">
          
-                <a class="nav-link " href="#">Varones</a>
+                <a class="nav-link " href="{{route('catalogoHombres')}}">Varones</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Mujeres</a>
+                <a class="nav-link" href="{{route('catalogoMujeres')}}">Mujeres</a>
               </li>
 
             </ul>
@@ -160,7 +160,7 @@
               <div class="card border-0 bg-light mb-2">
 
                 <div class="card-body">
-                  <img src="./img/prueba/{{$calzado->imagen}}" class="img-fluid img-thumbnail" alt="">
+                  <img src="./img/promocion/{{$calzado->imagen}}" class=" imagen_fija img-fluid img-thumbnail" alt="" >
                   
                 </div>
               </div>
@@ -168,16 +168,20 @@
               <h6> {{$calzado->detalle}}</h6>
 
               <p> {{$calzado->precio}}</p>
-            </div>
+              <?php
+              $carpeta = "prueba";
+              ?>
+        <a type ="button" class="btn btn-success" href="{{route('listarcalzado',['id' =>$calzado->id ,'carpeta'=>$carpeta] )}}">Agregar Carrito</a>
+      </div>
             @endforeach
                
           </div>
 
-          <div class="row">
+          {{-- <div class="row">
             <div class="col-lg-6 text-center m-auto">
               <a class="b3"href="#shop1" id="boton1" onclick="mostrar();">Mostrar más</a>
             </div>
-          </div>
+          </div> --}}
           
         </div>
       </section>
@@ -185,7 +189,7 @@
 
 
 <!-- INICIO DE CATALOGO CALZADOS MUJERES-->
-      <section class="product" id="s1">
+      <section class="calmujeres" id="s2">
         <div class="container py-5">
           <div class="row py-5 ">
               <div class="col-lg-5 m-auto text-center">
@@ -195,27 +199,31 @@
           </div>
            <div class="row">
 
-            @foreach ($calzados2 as $calzado2)
+            @foreach ($calzados1 as $calzado1)
             <div class="col-lg-3 text-center">
               <div class="card border-0 bg-light mb-2">
 
                 <div class="card-body">
-                  <img src="./img/womanh/{{$calzado2->imagen}}" class="img-fluid img-thumbnail" alt="">
+                  <img src="./img/womanh/{{$calzado1->imagen}}" class="imagen_fija img-fluid img-thumbnail" alt="">
                   
                 </div>
               </div>
-              <h6> {{$calzado2->marca}}</h6>
-              <h6> {{$calzado2->detalle}}</h6>
+              <h6> {{$calzado1->marca}}</h6>
+              <h6> {{$calzado1->detalle}}</h6>
 
-              <p> {{$calzado2->precio}}</p>
-            </div>
+              <p> {{$calzado1->precio}}</p>
+              <?php
+              $carpeta = "womanh";
+              ?>
+        <a type ="button" class="btn btn-success" href="{{route('listarcalzado',['id' =>$calzado1->id ,'carpeta'=>$carpeta] )}}">Agregar Carrito</a>
+      </div>
             @endforeach
                
           </div>
-
+<br>
           <div class="row">
             <div class="col-lg-6 text-center m-auto">
-              <a class="b3"href="#shop1" id="boton1" onclick="mostrar();">Mostrar más</a>
+              <a type="button "href="{{route('catalogoMujeres')}}" class="b1   ">Mostrar más</a>
             </div>
           </div>
           
@@ -223,15 +231,49 @@
       </section>
  <!-- * ************************************************************************************-->
 
-  
-
-
-
-
-
 <!-- INICIO DE CATALOGO CALZADOS VARONES-->
+<section class="calhombres" id="s3">
+  <div class="container py-5">
+    <div class="row py-5 ">
+        <div class="col-lg-5 m-auto text-center">
+          <label class="fuente1" href="#">Para Varones</label>
+            <h6 style="color:red;"> Destacados</h6>
+        </div>
+    </div>
+     <div class="row">
 
+      @foreach ($calzados2 as $calzado2)
+      <div class="col-lg-3 text-center">
+        <div class="card border-0 bg-light mb-2">
+          <div class="card-body">
+            <img src="./img/homeh/{{$calzado2->imagen}}" class="imagen_fija img-fluid img-thumbnail" alt="">            
+          </div>
+        </div>
+        <h6> {{$calzado2->marca}}</h6>
+        <h6> {{$calzado2->detalle}}</h6>
+        
+        <p> {{$calzado2->precio}}</p>
+        <?php
+        $carpeta = "homeh";
+        ?>
+        <a type ="button" class="btn btn-success" href="{{route('listarcalzado',['id' =>$calzado2->id ,'carpeta'=>$carpeta] )}}">Agregar Carrito</a>
+      </div>
 
+    
+      @endforeach
+         
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-6 text-center m-auto">
+        <a type="button "href="{{route('catalogoHombres')}}" class="b2 ">Mostrar más</a>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+ <!-- * ************************************************************************************-->
 
 
 
@@ -242,6 +284,10 @@
   }
   function ocultar(){
     document.getElementById('shop1').style.display ='none';
+  }
+
+  function enviar(id){
+   location.href = "detalle.php";
   }
   </script>
 
@@ -281,7 +327,7 @@
             </div>
           </div>
           
-       
+       s
   </section>    
   </body>
 </html>
