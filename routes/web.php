@@ -73,5 +73,3 @@ Route::get('/home',function(){
     return view('tienda.home');
 });
 
-
-
