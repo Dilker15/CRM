@@ -87,8 +87,10 @@
         <a class="b" href="{{route('tienda')}}">Menú Principal</a>
       </div>
     </nav>
+
   <div class="container"></div>
       <div class="row">
+        
         <div class="col">
           <div class="tarjeta ">
             <div class="titulo text-center ">Iniciar Sesión</div>
@@ -126,7 +128,15 @@
                   .botonIni:hover{
                     color:rgb(219, 204, 204);
                   }
+                  .alert{
+                  opacity: 0;
+                  transition: opacity 0.5s;
+                  }
+                  .show{
+                  opacity: 1;
+                  }
               </style>
+            
                     <div class="col-md-8" >
                         <label class="letra1" for="usuario">
                             Nombre Usuario:
@@ -142,10 +152,13 @@
                 </form>
                 <br><br>
                 <a href="" class="botonIni  letra1 text-center">Iniciar Sesión</a>      
-            </div>
+
+              </div>
+            
          </div>
+         
         </div>
-        
+
       
       </div>
       <div class="col">
@@ -153,8 +166,9 @@
           <div class="titulo text-center ">¿Aún no tienes cuenta? </div>
           <div class="cuerpo1">
            
-              <form  class="form1"action ="#" method="POST" id="" >
-                 
+              <form  class="form1"action ="{{route('clientes.store1')}}" method="POST" id="" >
+                @csrf 
+                @method('POST')
             <style>
               input {
                 width: 250px;
@@ -198,14 +212,14 @@
                       <label class="letra1" for="usuario">
                           Nombres:
                       </label>
-                      <input class="confondo" type="text" name="usuario" id="usuario"  placeholder="Usuario">
+                      <input class="confondo" type="text" name="nombre" id="nombre"  placeholder="Usuario">
                   </div>
       
                   <div class="col-md-8 ">
                       <label  class="letra1" for="apellidos">
                           Apellidos:
                       </label>
-                      <input class="confondo"  type="text" name="apellidos" id="apellidos" placeholder="Ingrese sus apellidos" >
+                      <input class="confondo"  type="text" name="apellido" id="apellido" placeholder="Ingrese sus apellidos" >
                 </div>
 
                   <div class="col-md-8 ">
@@ -219,28 +233,50 @@
                   <label  class="letra1" for="email">
                       Correo:
                   </label>
-                  <input class="confondo"  type="email" name="email" id="email" placeholder="Ingrese su e-mail" >
+                  <input class="confondo"  type="text" name="email" id="email" placeholder="Ingrese su e-mail" >
               </div>
 
               <div class="col-md-8 ">
                 <label  class="letra1" for="password">
                     Contraseña:
                 </label>
-                <input class="confondo"  type="password" name="password" id="password" placeholder="Ingrese su contraseña" >
+                <input class="confondo"  type="password" name="contraseña" id="contraseña" placeholder="Ingrese su contraseña" >
             </div>
 
                   <br>
                   <div class="col-md-8">
-                    <a href="" class="botonIni  letra1 ">Registrarme</a>      
-
+                    <!--<a href="" class="botonIni  letra1 ">Registrarme</a> -->     
+                    
+                    
+                    <button type="submit" class="btn btn-sm btn-success float-right"onclick="pregunta()";> 
+                      <i class="fa fa-save"></i>
+                      &nbsp;
+                      Guardar
+                    </a>
                   </div>
                     </form>
            
           </div>
         </div>
+
       </div>
-   
+   <script>
+   function pregunta(){  
+    swal({
+      title: "Registrado exitosamente!",
+      text: "Redireccionando in 2 segundos.",
+      type: "success",
+      timer: 2000,
+      showConfirmButton: false
+    }, function(){
+          window.location.href = "/";
+    });
+         } 
+   </script>
       
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" />
+
   <section class="news">
     
     <div class="container py-5">

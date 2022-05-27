@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'CRM',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -50,7 +50,7 @@ return [
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo_img_alt' => 'CRM',
 
     /*
     |--------------------------------------------------------------------------
@@ -246,16 +246,10 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+       
+        ['header' => 'Menú'],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'Administrativos',
+            'text' => 'Personal Administrativo',
             'route'  => 'administrativos.index',
             'icon' => 'fas fa-fw fa-user',
         ],
@@ -263,16 +257,20 @@ return [
             'text' => 'Clientes',
             'route'  => 'clientes.index',
             'icon' => 'fas fa-fw fa-lock',
+            //'can' => 'clientes.index', // ASIGNACION DEL PERMISO
         ],
+        
         [
-            'text'    => 'multilevel',
+            'text'    => 'Roles | Permisos',
             'icon'    => 'fas fa-fw fa-share',
+           // 'can' => 'Ver-compras',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Roles',
+                    'route'  => 'roles.index',
+                    'icon' => 'fa fa-glass'
                 ],
-                [
+                /*[
                     'text'    => 'level_one',
                     'url'     => '#',
                     'submenu' => [
@@ -295,26 +293,36 @@ return [
                             ],
                         ],
                     ],
-                ],
+                ],*/
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Permisos',
+                    'route'  => 'permisos.index',
+                    'icon'  => 'fa fa-pencil'
                 ],
             ],
         ],
-        ['header' => 'labels'],
+
         [
-            'text'       => 'important',
+            'text' => 'Promociones',
+           'route'  => 'Inicio1',
+          
+            'icon' => 'fas fa-fire-alt',
+            //'can' => 'clientes.index', // ASIGNACION DEL PERMISO
+        ],
+
+        ['header' => 'Negocio'],
+        [
+            'text'       => 'En espera',
             'icon_color' => 'red',
             'url'        => '#',
         ],
         [
-            'text'       => 'warning',
+            'text'       => 'En proceso',
             'icon_color' => 'yellow',
             'url'        => '#',
         ],
         [
-            'text'       => 'information',
+            'text'       => 'Concluido',
             'icon_color' => 'cyan',
             'url'        => '#',
         ],

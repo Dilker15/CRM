@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Administrativo\AdministrativoController;
-
+use App\Http\Controllers\Role\RoleController;
+use App\Http\Controllers\Permiso\PermisoController;
 
 
 
@@ -22,8 +23,12 @@ Route::prefix('administrativos')->name('administrativos.')->middleware(['auth'])
 
     Route::delete('/delete',[AdministrativoController::class,'destroy'])->name('destroy');
 
+   
+   
 
 
+
+ 
 });
 
 

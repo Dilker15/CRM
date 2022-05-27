@@ -17,6 +17,10 @@ class Calzado extends Model
   protected $hidden =['id'];
 
 
+  public function promocion()
+  {
+      return $this->belongsToMany('App\Models\Promocion\Promocion');
+  }
 
 
 

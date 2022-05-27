@@ -22,6 +22,7 @@ class Administrativo extends Model
         'sexo',
         'fecha_nacimiento',
     ];
+    
 
 
     public function getEstadoColorAttribute(){

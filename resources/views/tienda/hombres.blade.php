@@ -137,7 +137,7 @@
               $carpeta = "kidman";
               ?>
        <a type="button" class=" btn btn-primary  "  href="" data-toggle="modal"  
-       data-target ="#ModalCalzado" onclick="selCazado("$niño->id","$niño->marca",$niño->detalle,$niño->precio,'$niño->imagen')"
+       data-target ="#ModalCalzado" 
      
        >Agregar a carrito</a>
              <br>    <br>    <br>    <br>
