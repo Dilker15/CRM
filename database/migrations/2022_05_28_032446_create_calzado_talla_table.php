@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('talla_calzado', function (Blueprint $table) {
-            $table->unsignedInteger('talla_id');
-            $table->unsignedInteger('calzado_id');
+        Schema::create('calzado_talla', function (Blueprint $table) {
+            $table->unsignedBigInteger('talla_id');
+            $table->unsignedBigInteger('calzado_id');
             $table->integer('cantidad');
             $table->foreign('talla_id')->references('id')->on('talla')->onDelete('cascade');
             $table->foreign('calzado_id')->references('id')->on('calzado')->onDelete('cascade');
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('talla_calzado');
+        Schema::dropIfExists('calzado_talla');
     }
 };

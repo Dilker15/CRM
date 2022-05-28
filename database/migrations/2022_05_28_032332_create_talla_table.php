@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('talla', function (Blueprint $table) {
             $table->id();
             $table->String('NumeroTalla',5);
-
         });
     }
 
