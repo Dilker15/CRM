@@ -21,7 +21,6 @@ return new class extends Migration
             $table->String('estado',30);
             $table->String('detalle',600);
             $table->String('imagen',500);
-
         });
     }
 

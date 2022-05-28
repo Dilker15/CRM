@@ -19,6 +19,8 @@ return new class extends Migration
             $table->integer('cantidad');
             $table->foreign('talla_id')->references('id')->on('talla')->onDelete('cascade');
             $table->foreign('calzado_id')->references('id')->on('calzado')->onDelete('cascade');
+        	
+
         });
     }
 
