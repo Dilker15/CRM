@@ -36,20 +36,6 @@
                 <a class="nav-link " href="{{route('catalogoHombres')}}">hombres</a>
               </li>
              
-           <!--   <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-              </li>-->
             </ul>
             <style>
               .b{
@@ -68,15 +54,8 @@
                  }
                  .b:hover{
                    color:yellow;
-                 }
-   
-               
-   
+                 } 
              </style>
-   
-   
-               
-   
            </div>
            <a class="b" href="{{route('tienda')}}">Menú Principal</a>
          </div>
@@ -132,31 +111,23 @@
               </div>
           </div>
            <div class="row">
-
             @foreach ($niñas as $niña)
             <div class="col-lg-3 text-center">
               <div class="card border-0 bg-light mb-2">
-
-                <div class="card-body">
-                  <img src="./img/kidwoman/{{$niña->imagen}}" class="imagen_fija img-fluid img-thumbnail" alt="">
-                  
+                 <div class="card-body">
+                  <img src="./img/kidwoman/{{$niña->imagen}}" class="imagen_fija img-fluid img-thumbnail" alt="">                  
                 </div>
               </div>
               <h6> {{$niña->marca}}</h6>
               <h6> {{$niña->detalle}}</h6>
-
               <p> Bs. {{$niña->precio}}</p>
               <?php
               $carpeta = "kidwoman";
               ?>
-        <a type ="button" class="btn btn-success" href="{{route('listarcalzado',['id' =>$niña->id ,'carpeta'=>$carpeta] )}}">Agregar Carrito</a>
-      </div>
-            @endforeach
-               
-          </div>
-<br>
-    
-          
+              <a type ="button" class="btn btn-success" href="{{route('listarcalzado',['id' =>$niña->id ,'carpeta'=>$carpeta] )}}">Agregar Carrito</a>
+             </div>
+            @endforeach               
+         </div><br>   
         </div>
       </section>
       

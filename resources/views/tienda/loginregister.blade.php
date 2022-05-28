@@ -88,6 +88,45 @@
       </div>
     </nav>
 
+    <style>
+      input {
+        width: 230px;
+        padding: 5px;
+      }
+      .confondo {
+        background-color: rgb(243, 247, 250);
+        border-radius: 5px;
+        color:rgb(19, 20, 22);
+        
+      }
+      ::placeholder{
+        color:rgb(204, 201, 201);
+        font-family:Arial, Helvetica, sans-serif;
+      }
+      .letra1{
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .botonIni{
+          width: 130px;
+          border-radius: 5px;
+          background: rgba(16, 179, 79, 0.774);
+          padding: 10px;
+          color:rgb(255, 255, 255);
+          text-decoration: none;
+          margin-left: 20px
+        }
+        .botonIni:hover{
+          color:rgb(219, 204, 204);
+        }
+        .alert{
+        opacity: 0;
+        transition: opacity 0.5s;
+        }
+        .show{
+        opacity: 1;
+        }
+    </style>
+
   <div class="container"></div>
       <div class="row">
         
@@ -98,44 +137,7 @@
              
                 <form  class="form1"action ="#" method="POST" id="" >
                    
-              <style>
-                input {
-                  width: 230px;
-                  padding: 5px;
-                }
-                .confondo {
-                  background-color: rgb(243, 247, 250);
-                  border-radius: 5px;
-                  color:rgb(19, 20, 22);
-                  
-                }
-                ::placeholder{
-                  color:rgb(204, 201, 201);
-                  font-family:Arial, Helvetica, sans-serif;
-                }
-                .letra1{
-                  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-                  }
-                  .botonIni{
-                    width: 130px;
-                    border-radius: 5px;
-                    background: rgba(16, 179, 79, 0.774);
-                    padding: 10px;
-                    color:rgb(255, 255, 255);
-                    text-decoration: none;
-                    margin-left: 20px
-                  }
-                  .botonIni:hover{
-                    color:rgb(219, 204, 204);
-                  }
-                  .alert{
-                  opacity: 0;
-                  transition: opacity 0.5s;
-                  }
-                  .show{
-                  opacity: 1;
-                  }
-              </style>
+            
             
                     <div class="col-md-8" >
                         <label class="letra1" for="usuario">
