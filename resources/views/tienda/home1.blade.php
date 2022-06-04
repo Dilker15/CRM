@@ -167,7 +167,7 @@
               <h6> {{$calzado->marca}}</h6>
               <h6> {{$calzado->detalle}}</h6>
 
-              <p> {{$calzado->precio}}</p>
+              <p>Bs. {{$calzado->precio}}</p>
               <?php
               $carpeta = "prueba";
               ?>
@@ -211,7 +211,7 @@
               <h6> {{$calzado1->marca}}</h6>
               <h6> {{$calzado1->detalle}}</h6>
 
-              <p> {{$calzado1->precio}}</p>
+              <p> Bs. {{$calzado1->precio}}</p>
               <?php
               $carpeta = "womanh";
               ?>
@@ -252,7 +252,7 @@
         <h6> {{$calzado2->marca}}</h6>
         <h6> {{$calzado2->detalle}}</h6>
         
-        <p> {{$calzado2->precio}}</p>
+        <p>Bs. {{$calzado2->precio}}</p>
         <?php
         $carpeta = "homeh";
         ?>

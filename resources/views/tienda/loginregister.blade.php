@@ -133,32 +133,27 @@
         <div class="col">
           <div class="tarjeta ">
             <div class="titulo text-center ">Iniciar Sesión</div>
-            <div class="cuerpo">
-             
-                <form  class="form1"action ="#" method="POST" id="" >
-                   
-            
-            
-                    <div class="col-md-8" >
-                        <label class="letra1" for="usuario">
-                            Nombre Usuario:
-                        </label>
-                        <input class="confondo" type="text" name="usuario" id="usuario"  placeholder="Usuario">
-                    
-          <br>
-                    <div class="col-md-12 ">
-                        <label  class="letra1" for="password">
-                            Contraseña:
-                        </label>
-                        <input class="confondo"  type="password" name="password" id="password" placeholder="Ingrese su contraseña" >
-                </form>
-                <br><br>
-                <a href="" class="botonIni  letra1 text-center">Iniciar Sesión</a>      
-
-              </div>
-            
+              <div class="cuerpo">
+                  <form  class="form1"action ="#" method="POST" id="" >
+                      <div class="col-md-8" >
+                          <label class="letra1" for="usuario">
+                                Nombre Usuario:
+                          </label>
+                          <input class="confondo" type="text" name="usuario" id="usuario"  placeholder="Usuario">                 
+                          <br>
+                      </div>
+                      <div class="col-md-8 ">
+                          <label  class="letra1" for="password">
+                              Contraseña:
+                          </label>
+                          <input class="confondo"  type="password" name="password" id="password" placeholder="Ingrese su contraseña" >
+                      </div><br>
+                          <div class="col-md-9">
+                            <a href="" class="botonIni  letra1 text-center">Iniciar Sesión</a>   
+                        </div>
+                  </form>
+              </div>   
          </div>
-         
         </div>
 
       
@@ -215,14 +210,13 @@
                           Nombres:
                       </label>
                       <input class="confondo" type="text" name="nombre" id="nombre"  placeholder="Usuario">
-                  </div>
-      
+                  </div> 
                   <div class="col-md-8 ">
                       <label  class="letra1" for="apellidos">
                           Apellidos:
                       </label>
                       <input class="confondo"  type="text" name="apellido" id="apellido" placeholder="Ingrese sus apellidos" >
-                </div>
+                 </div>
 
                   <div class="col-md-8 ">
                     <label  class="letra1" for="password">
