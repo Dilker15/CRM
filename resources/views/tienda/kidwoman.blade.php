@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Radio+Canada:wght@500&family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
    
    
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/style.css')}}">
     <title>Tienda de Zapatos </title>
   </head>
   <body>
