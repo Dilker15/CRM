@@ -154,34 +154,43 @@
               </div>
           </div>
            <div class="row">
-
             @foreach ($calzados as $calzado)
             <div class="col-lg-3 text-center">
               <div class="card border-0 bg-light mb-2">
-
                 <div class="card-body">
                   <img src="./img/promocion/{{$calzado->imagen}}" class=" imagen_fija img-fluid img-thumbnail" alt="" >
-                  
                 </div>
               </div>
               <h6> {{$calzado->marca}}</h6>
               <h6> {{$calzado->detalle}}</h6>
-
               <p>Bs. {{$calzado->precio}}</p>
               <?php
               $carpeta = "prueba";
               ?>
-        <a type ="button" class="btn btn-success" href="{{route('listarcalzado',['id' =>$calzado->id ,'carpeta'=>$carpeta] )}}">Agregar Carrito</a>
-      </div>
-            @endforeach
-               
-          </div>
+        <!--<a type ="button" class="btn btn-success" href="{{route('listarcalzado',['id' =>$calzado->id ,'carpeta'=>$carpeta] )}}">Agregar Carrito</a>-->
+       
+              
+                <button class="btn btn-success" id="AgregarCarrito"
+                data-id={{$calzado->id}}
+                data-marca={{$calzado->marca}}
+                data-detalle={{$calzado->detalle}}
+                data-precio={{$calzado->precio}}
+                data-imagen={{$calzado->imagen}}
+                data-carpeta = {{$carpeta}}
+                >Agregar Carrito</button>              
+            <div class="row ">  <br>
+              <div class="col-lg-6 "><br>
+                <h6 style ="margin-right:1px">Cantidad</h6> 
+              </div>
+              <div class="col-lg-4" style="margin-top: 15px">
+                <input type="number" class="form-control text-center" id ="cantidad" value ="1" >          
 
-          {{-- <div class="row">
-            <div class="col-lg-6 text-center m-auto">
-              <a class="b3"href="#shop1" id="boton1" onclick="mostrar();">Mostrar más</a>
+              </div>
             </div>
-          </div> --}}
+          </div>
+         
+            @endforeach
+        </div>
           
         </div>
       </section>
@@ -279,16 +288,34 @@
 
 <!-- JAVASCRIPT-->
   <script type="text/javascript">
-  function mostrar(){
-    document.getElementById('shop1').style.display ='block';
-  }
-  function ocultar(){
-    document.getElementById('shop1').style.display ='none';
-  }
-
   function enviar(id){
    location.href = "detalle.php";
-  }
+  } 
+  $(document).ready(function(){
+    $("#AgregarCarrito").click(function (e){
+      e.preventDefault();
+      var id =$(this).data('id');
+      var marca =$(this).data('marca');
+      var detalle =$(this).data('detalle');
+      var precio =$(this).data('precio');
+      var imagen =$(this).data('imagen');
+      var carpeta =$(this).data('carpeta');
+      var cantidad =$(this).data('cantidad');
+      $.ajax({
+        type:"post",
+        url:"tienda.carrito.php",
+        data:{"id":id,"marca":marca,"detalle":detalle,"precio":precio,"imagen":imagen,"carpeta":carpeta,"cantidad":cantidad},
+        dataType: "dataType",
+        success:function(response) {
+            var cantidad = Object.keys(response).length;
+            
+        }
+      })
+
+    });
+  });
+
+
   </script>
 
 

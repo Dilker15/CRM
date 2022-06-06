@@ -87,7 +87,9 @@ class Cliente1Controller extends Controller
      }
 
 
-
+    public function p1(){
+      return view('tienda.principal');
+    }
     public function index()
     {
      
