@@ -21,6 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="{{secure_asset('css/style.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <title>Tienda de Zapatos </title>
   </head>
@@ -46,6 +47,19 @@
               <button class="btn0 " type="submit">Buscar</button>
             </form>-->
               <style>
+                .carrito{
+                  height: 30px;
+                margin-right: -6cm;
+                width: 140px;
+                border:none;
+                padding: 3px 7px 20px 25px;
+                outline: none;
+                background-color: rgb(243, 36, 181);
+                color: white;
+                font-weight: 700;
+                text-decoration: none;
+                border-radius:60px;
+                }
                 .b{
                 height: 30px;
                 margin-right: -3cm;
@@ -120,11 +134,13 @@
                 color:yellow;
               }
                 </style>
-           
+             
           </div>
           <form class="d-flex">
+            <a class=" bi bi-cart4" id="iconocalzado" style = "margin-right: 25px; font-size: 25px; margin-top:-5px"></a>
             <!-- <input class=" px-2 search" type="search" placeholder="Buscar" aria-label="Search">-->
              <a class="b" href="{{route('registro')}}">Iniciar Sesión</a>
+             
            </form>
         </div>
       </nav>
@@ -308,9 +324,12 @@
         dataType: "dataType",
         success:function(response) {
             var cantidad = Object.keys(response).length;
-            
-        }
-      })
+            $("#iconocalzado").text(cantidad);
+            response.forEach(element => {
+              
+            });
+          }
+      });
 
     });
   });
