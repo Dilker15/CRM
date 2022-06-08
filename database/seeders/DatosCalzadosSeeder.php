@@ -15,6 +15,7 @@ class DatosCalzadosSeeder extends Seeder
      */
     public function run()
     {   
+        DB::table('calzado')->truncate();
     //insertando datos a la tabla de talla
         DB::table('talla')->insert([
             'NumeroTalla' => '33',        

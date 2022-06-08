@@ -150,14 +150,14 @@ class DatosCalzadosHombresSeeder extends Seeder
             'detalle' =>'kids colors',
             'imagen' => 'niketri.jpg',
         ]);
-        DB::table('calzado')->insert([
+       /* DB::table('calzado')->insert([
             'marca' => 'Puma',
             'precio' => 240.00,      
             'tipo' => 'kidman',
             'estado' => 'Normal', 
             'detalle' =>'black classic',
             'imagen' => 'PumaToddler.jpg',
-        ]);
+        ]);*/
         DB::table('calzado')->insert([
             'marca' => 'McQueen',
             'precio' => 600.00,      
@@ -180,7 +180,7 @@ class DatosCalzadosHombresSeeder extends Seeder
             'tipo' => 'kidman',
             'estado' => 'Normal', 
             'detalle' =>'Orange with black',
-            'imagen' => 'zapatosbaloncesto-adidas.jpg',
+            'imagen' => 'zapatos-de-baloncesto-adidas.jpg',
         ]);
         DB::table('calzado')->insert([
             'marca' => 'Puma',

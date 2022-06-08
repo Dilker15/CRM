@@ -28,7 +28,7 @@ class Cliente1Controller extends Controller
                     //->groupBy('marca','precio','stock','estado','detalle','imagen')
                    ->where('estado','=','Promocion')->get();
 
-    //calzados para mujeres
+    //calzados para mujeres y niñas destacados
         $calzados1 = DB::table('calzado')
                   
                   //  ->where('estado','=','Destacado'  )->get();
@@ -37,15 +37,20 @@ class Cliente1Controller extends Controller
                         ['tipo', '=','mujer'],
                       ])->get();
 
-    //calzados para hombres
+    //calzados para hombres y niños destacados
         $calzados2 = DB::table('calzado') 
                   //  ->where('tipo','=','hombre')->get();
                   ->where([
                     ['estado','=','Destacado'],
                     ['tipo', '=','hombre'],
                   ])->get();
+        $hombres = DB::table('calzado')->where('tipo','=','hombre')->get();   
+        $niños =     DB::table('calzado') ->where('tipo','=','kidman')->get();
+        $mujeres = DB::table('calzado')->where('tipo','=','mujer')->get();   
+        $niñas =     DB::table('calzado') ->where('tipo','=','kidwoman')->get();            
+      return view('tienda.principal',compact('calzados','calzados1','calzados2','hombres','niños','mujeres','niñas'));
+    //  return view('tienda.home1',compact('calzados','calzados1','calzados2'));
 
-      return view('tienda.home1',compact('calzados','calzados1','calzados2'));
     }
 
 

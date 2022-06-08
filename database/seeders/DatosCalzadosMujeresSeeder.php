@@ -79,14 +79,14 @@ class DatosCalzadosMujeresSeeder extends Seeder
             'detalle' =>'colors play',
             'imagen' => 'pumacolorrr.jpg',
         ]);
-        DB::table('calzado')->insert([
+/*        DB::table('calzado')->insert([
             'marca' => 'Puma',
             'precio' => 400.00,      
             'tipo' => 'mujer',
             'estado' => 'Normal', 
             'detalle' =>'Red wine',
             'imagen' => 'PumasXXY.jpg',
-        ]);
+        ]);*/
         DB::table('calzado')->insert([
             'marca' => 'C/Moran',
             'precio' => 290.00,      

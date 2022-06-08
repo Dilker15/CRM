@@ -24,6 +24,9 @@ use Illuminate\Support\Facades\Route;
 })->name('tienda');*/
 
 
+//Route::get('/',[Cliente1Controller::class,'catalogo'])->name('tienda');
+
+//PRINCIPAL
 Route::get('/',[Cliente1Controller::class,'catalogo'])->name('tienda');
 Route::get('registro',[Cliente1Controller::class,'index'])->name('registro');
 
@@ -68,8 +71,7 @@ Route::get('/home',function(){
     return view('tienda.home');
 });
 
-//PRINCIPAL
-Route::get('/Principal',[Cliente1Controller::class,'p1'])->name('p1');
+
 
 
 
