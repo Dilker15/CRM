@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\Cliente\ClienteController;
 use App\Http\Controllers\Cliente1Controller;
 use App\Http\Controllers\PromocionController;
 use Illuminate\Support\Facades\Route;
@@ -70,9 +70,9 @@ Route::get('/detalle/{id}/{carpeta}',[Cliente1Controller::class,'ListarCalzado']
 Route::get('/home',function(){
     return view('tienda.home');
 });
-
-
-
-
+Route::post('/store',[ClienteController::class,'store2'])->name('store2');
+Route::get('/base' ,function(){return view('tienda.login.conexion');});
+Route::post('/Sesión-Iniciada',[ClienteController::class,'loginCliente1'])->name('loguear');
+Route::get('/salir',[ClienteController::class,'SalirCliente'])->name('salir');
 
 

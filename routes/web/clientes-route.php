@@ -17,8 +17,8 @@ Route::prefix('clientes')->name('clientes.')->middleware(['auth'])->group(functi
 
     Route::put('/update/{cliente}',[ClienteController::class,'update'])->name('update');
 
-    Route::post('/store',[ClienteController::class,'store'])->name('store');
-    Route::post('/store',[ClienteController::class,'store1'])->name('store1');
+    //Route::post('/store',[ClienteController::class,'store'])->name('store');
+    Route::post('/store',[ClienteController::class,'store2'])->name('store2');
     Route::delete('/delete',[ClienteController::class,'destroy'])->name('destroy');
 
     Route::get('/loginregister',[Cliente1Controller::class,'index'])->name('loginregister');

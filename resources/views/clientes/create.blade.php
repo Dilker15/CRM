@@ -18,7 +18,7 @@
                 </a>
             </div>
         </div>
-        <div class="card-body">
+        <div class="card-bod y">
             <form action="{{route('clientes.store')}}" method="post" id="formulario">
                 <fieldset>
                     <center><legend>FORMULARIO DE CREACION</legend></center>

@@ -1,3 +1,25 @@
+<?php
+ 
+ if((!isset($nombre)) || (!isset($cerrar))){
+   $estado = false;
+ }else{
+      if((isset($nombre)) || (!isset($cerrar))){
+        session_start();
+        $_SESSION['nombre'] =$nombre;
+        $_SESSION['ID'] =$id;
+        $estado = true;
+       }else{
+        if(isset($cerrar)){
+        unset( $_SESSION['nombre']);
+        unset( $_SESSION['ID']); 
+        $estado = false; 
+        session_destroy();
+        }
+       }
+      }        
+
+
+?> 
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -36,6 +58,7 @@
   </head>
 
   <body>
+   
     <header class=" header-altura container-fluid  position-sticky top-0">
     <ul class="nav nav-pills mb-3 py-3  " id="pills-tab" role="tablist">
       <a class="navbar-brand " href="{{route('tienda')}}">CalzadoManía</a>
@@ -51,18 +74,30 @@
       <li class="nav-item" role="presentation">
         <a class="nav-link" id="pills-carrito-tab" data-bs-toggle="pill" data-bs-target="#pills-carrito" type="button" role="tab" aria-controls="pills-carrito" aria-selected="false">Carrito</a>
       </li>
-      <li class="derecha nav-item"  role="presentation" style="text-align:right">
-        <a class="nav-link " href="{{route('registro')}}">Iniciar Sesión</a>
-      </li>
-    </ul>
-    <form class="d-flex">
-      <a class=" bi bi-cart4" id="iconocalzado" ></a>
-      <!-- <input class=" px-2 search" type="search" placeholder="Buscar" aria-label="Search">-->
-   
-       
-     </form>
+
+      <?php if($estado == false){  ?>
+      <li class=" nav-item"  role="presentation">
+        <a class="nav-link" id="pills-iniciosesion-tab" data-bs-toggle="pill" data-bs-target="#pills-iniciosesion" type="button" role="tab" aria-controls="pills-iniciosesion" aria-selected="false">Inicio de Sesión</a>      </li>
+        <?php } ?>
+        <?php if($estado == true){  ?>
+        <li class="nav-item" role="presentation">   
+          <a class="nav-link" href="{{route('salir')}}">SALIR</a>
+          <?php } ?>
+        </li>
+      </ul>
+  
 
   </header>
+  
+  <?php
+  if($estado ==true){   ?>
+  <div class="alert container position-sticky top-0 alert-primary hide" role="alert">
+    Has iniciado sesión correctamente
+   </div> 
+  <?php
+  } 
+  ?>
+
   <div class="alert container position-sticky top-0 alert-primary hide" role="alert">
     Calzado añadido al carrito
   </div>
@@ -379,6 +414,81 @@
         </div>
 
       </div>
+      <div class="tab-pane fade" id="pills-iniciosesion" role="tabpanel" aria-labelledby="pills-iniciosesion-tab">
+        <div class="card bg-light text-dark">
+          <img src="../img/img4.jpg" class="card-img" alt="...">
+          <div class="card-img-overlay">
+            <div class="row">
+            <div class="col-sm-6">
+              <h3 class="card-title nav-link1">Ya soy cliente</h3>
+              <div class="card tarjeta__InicioSesion">
+                <div class="card-body">
+                  <div class="titulo text-center ">Inicia tu sesión aquí</div>
+                  <h6 class="card-title text-center">Complete los campos</h6>
+                  <form action ="{{route('loguear')}}" method="POST" id="" >
+                    @csrf 
+                  
+                    <div class="input-group ">
+                      <span class="input-group-text  col-sm-2" > Usuario</span>
+                      <input type="text" aria-label="usuario" name="email" class="form-control">
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text col-sm-2 text-center">Password</span>
+                      <input type="password" aria-label="password" name="password" class="form-control"> 
+                    </div><br>
+                  <div class="d-grid gap-2 d-md-flex  justify-content-md-center">
+                    <button type ="submit"class="btn btn-primary">Ingresar</button>
+                  </div>
+                </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <h3 class="card-title nav-link1">Soy cliente nuevo</h3>
+              <div class="card tarjeta__Registro">
+                <div class="card-body">             
+                  <div class="titulo text-center ">Regístrate</div><br>
+                  <h6 class="card-title text-center">Complete los campos</h6>
+                  <form action ="{{route('clientes.store2')}}" method="POST" id="" >
+                    @csrf 
+                    @method('POST')
+                    <div class="input-group ">
+                      <span class="input-group-text  col-sm-2" > Nombres</span>
+                      <input type="text" aria-label="usuario" name="nombre" class="form-control">
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text col-sm-2 text-center">Apellidos</span>
+                      <input type="text" aria-label="password" name="apellido" class="form-control"> 
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text col-sm-2 text-center">Teléfono</span>
+                      <input type="text" aria-label="password" name="telefono" class="form-control"> 
+                    </div>                  
+                    <div class="input-group">
+                      <span class="input-group-text col-sm-2 text-center">Correo</span>
+                      <input type="text" aria-label="password" name="email" class="form-control"> 
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text col-sm-2 text-center">Password</span>
+                      <input type="password" aria-label="password" name="password" class="form-control"> 
+                    </div><br>
+                    
+                  <div class="d-grid gap-2 d-md-flex  justify-content-md-center">
+                    <button  type="submit"class="btn btn-primary">Registrarse</button>
+                  </div>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      
+         
+          
+      
+      </div>
+    
     </div>
   
      <footer class="bg-dark p-3 mt-5">
@@ -392,8 +502,11 @@
       integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" />
     <!-- JavaScript Bundle with Popper -->
     <script
+    
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
       crossorigin="anonymous">

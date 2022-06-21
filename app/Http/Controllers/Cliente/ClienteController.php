@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cliente\Cliente;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 class ClienteController extends Controller
 {
@@ -53,15 +54,17 @@ class ClienteController extends Controller
     {    
         $inputs = $request->all();
         $cliente = Cliente::create($inputs);
-        $cliente->estado ="1";
+        $cliente->estado =1;
+        $cliente->tipo =2;
         $email = $inputs['email'];
         $rol_id=2;
-        $contraseña = $inputs['contraseña'];
+        $contraseña = $inputs['password'];
       
         $persona_id= $cliente->id;
         $this->crearUsuario($inputs['nombre'],$email,$contraseña,$rol_id,$persona_id);
         
-        return redirect()->route('clientes.loginregister')->with('success','Cliente creado con Exito');
+      //  return redirect()->route('clientes.loginregister')->with('success','Cliente creado con Exito');
+      return view('tienda.login.loguear');
     }   
 
 
@@ -81,11 +84,65 @@ class ClienteController extends Controller
 
 
     }
+    public function store2(Request $request)
+    {    
+        $inputs = $request->all();
+        $cliente = Cliente::create($inputs);
+        $cliente->estado =1;
+        $cliente->tipo =2;
+        $email = $inputs['email'];
+        $rol_id=2;
+        $contraseña = $inputs['password'];
+      
+        $persona_id= $cliente->id;
+        $this->crearUsuario1($inputs['nombre'],$email,$contraseña,$rol_id,$persona_id);
+        
+       return redirect()->route('tienda.principal');
+     // return view('tienda.principal');
+    }   
+
+    private function crearUsuario1($name,$email,$ci,$rol_id,$persona_id){
+
+        $usuario = User::create([
+            'name' => $name,
+            'email'=> $email,
+            'password' => $ci,
+            'role_id' => $rol_id,
+            'tipo_id' => 2,
+            'persona_id' =>$persona_id,
+
+        ]);
+        $rol = Role::find($rol_id);
+        $usuario->assignRole($rol);
 
 
+    }
 
+    public function loginCliente1(Request $request){
+        $inputs = $request->all();
+        $email = $inputs['email'];
+        $password = $inputs['password'];
+        $consulta= DB::table('users')
+        ->where([
+            ['email','=',$email],
+            ['password', '=',$password],
+          ])->get(); 
+          if(count($consulta)>=1 ){   
+        $nombre = DB::table('users')->where('email','=', $email)->value('name');
+        $id =DB::table('users')->where('email','=', $email)->value('id');
+        return redirect()->route('tienda',compact('nombre', 'id'));
+     //   return view('tienda.prueba',compact('nombre','id'));
+        }
 
+    }
+    
+    public function SalirCliente(){
+        
+        $cerrar = "Logout";
+        return redirect()->route('tienda',compact('cerrar'));
+    }
 
+   /* */
 
     /**
      * Display the specified resource.

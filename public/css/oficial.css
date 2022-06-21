@@ -29,6 +29,15 @@ background: rgb(29, 28, 28);
     font-family: 'Radio Canada', sans-serif;
     text-transform: uppercase;
 }
+.nav-link1{
+    margin-top: 10px;
+    margin-right: 5px;
+    font-size:large;
+    margin-left: 5px;
+    color: rgb(11, 11, 17);
+    font-family: 'Radio Canada', sans-serif;
+    text-transform: uppercase;
+}
 .nav-link:hover{
     color:rgb(213, 235, 16);
 }
@@ -235,4 +244,14 @@ background: rgb(29, 28, 28);
 }
 .hide, .remove{
     display: none;
+}
+.tarjeta__InicioSesion, .tarjeta__Registro{
+    margin-top: 30px;
+}
+.titulo{
+    font-size: 34px;
+    padding: 10px 10px 0 10px;
+    background-color: rgb(240, 240, 186);
+    color:rgb(202, 159, 159);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

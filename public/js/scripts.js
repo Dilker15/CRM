@@ -136,3 +136,15 @@ window.onload = function(){
         renderCarrito()
     }
 }
+
+  function pregunta(){  
+    swal({
+      title: "Registrado exitosamente!",
+      text: "Redireccionando in 2 segundos.",
+      type: "success",
+      timer: 2000,
+      showConfirmButton: false
+    }, function(){
+          window.location.href = "/";
+    });
+         } 
