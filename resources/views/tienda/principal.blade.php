@@ -52,9 +52,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
     <!--*********************************************************************************************************************************************************************-->
-    <link rel="stylesheet" href="{{secure_asset('css/s1.css')}}">
+  
     <link rel="stylesheet" href="{{secure_asset('css/oficial.css')}}">
-    <link rel="stylesheet" href="css/oficial.css">
+ 
   </head>
 
   <body>
