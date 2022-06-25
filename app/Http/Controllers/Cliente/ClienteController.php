@@ -127,11 +127,22 @@ class ClienteController extends Controller
             ['email','=',$email],
             ['password', '=',$password],
           ])->get(); 
-          if(count($consulta)>=1 ){   
-        $nombre = DB::table('users')->where('email','=', $email)->value('name');
-        $id =DB::table('users')->where('email','=', $email)->value('id');
-        return redirect()->route('tienda',compact('nombre', 'id'));
+          if(count($consulta)>=1 ){  
+            $calzados =  DB::table('calzado')->where('estado','=','Promocion')->get();
+            $calzados1 = DB::table('calzado')->where([['estado','=','Destacado'],['tipo', '=','mujer'],])->get();
+            $calzados2 = DB::table('calzado') ->where([['estado','=','Destacado'],['tipo', '=','hombre'],])->get();
+            $hombres =   DB::table('calzado')->where('tipo','=','hombre')->get();   
+            $niños =     DB::table('calzado') ->where('tipo','=','kidman')->get();
+            $mujeres =   DB::table('calzado')->where('tipo','=','mujer')->get();   
+            $niñas =     DB::table('calzado') ->where('tipo','=','kidwoman')->get(); 
+
+            $nombre = DB::table('users')->where('email','=', $email)->value('name');
+            $id =DB::table('users')->where('email','=', $email)->value('id');
+            return view('tienda.perfil',compact('calzados','calzados1','calzados2',
+                        'hombres','niños','mujeres','niñas','nombre','id'));
      //   return view('tienda.prueba',compact('nombre','id'));
+        }else{
+            return "Datos incorrectos";
         }
 
     }

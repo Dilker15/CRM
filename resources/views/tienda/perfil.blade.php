@@ -1,4 +1,25 @@
+<?php
+   session_start();
+ if((!isset($nombre)) && (!isset($cerrar))){
+   $estado = false;
+ }else{
+      if((($nombre != null)) && (!isset($cerrar))){
+      
+        $_SESSION['nombre'] =$nombre;
+        $_SESSION['ID'] =$id;
+        $estado = true;
+       }else{
+        if(isset($cerrar)){
+          session_unset();
+        session_destroy();
+        $estado = false; 
+  
+        }
+       }
+      }        
 
+
+?> 
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,9 +52,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
     <!--*********************************************************************************************************************************************************************-->
-    <link rel="stylesheet" href="{{secure_asset('css/s1.css')}}">
+  
     <link rel="stylesheet" href="{{secure_asset('css/oficial.css')}}">
-    <link rel="stylesheet" href="css/oficial.css">
+    <link rel="stylesheet" href="css/oficial.css ">
   </head>
 
   <body>
@@ -41,7 +62,7 @@
     <header class=" header-altura container-fluid  position-sticky top-0">
     <ul class="nav nav-pills mb-3 py-3  " id="pills-tab" role="tablist">
       <a class="navbar-brand " href="{{route('tienda')}}">CalzadoManía</a>
-      <li class="nav-item" role="presentation">
+      <li class="nav-item" role="presentation">        
         <a class="nav-link active" id="pills-principal-tab" data-bs-toggle="pill" data-bs-target="#pills-principal" type="button" role="tab" aria-controls="pills-principal" aria-selected="true">Principal</a>
       </li>
       <li class="nav-item" role="presentation">
@@ -53,15 +74,29 @@
       <li class="nav-item" role="presentation">
         <a class="nav-link" id="pills-carrito-tab" data-bs-toggle="pill" data-bs-target="#pills-carrito" type="button" role="tab" aria-controls="pills-carrito" aria-selected="false">Carrito</a>
       </li>
-
-      
-      <li class=" nav-item"  role="presentation">
-        <a class="nav-link" id="pills-iniciosesion-tab" data-bs-toggle="pill" data-bs-target="#pills-iniciosesion" type="button" role="tab" aria-controls="pills-iniciosesion" aria-selected="false">Inicio de Sesión</a>      </li>
-    
+      <li class="nav-item"  role="presentation">
+        <a class="nav-link" id="pills-perfil-tab" data-bs-toggle="pill" data-bs-target="#pills-perfil" type="button" role="tab" aria-controls="pills-perfil" aria-selected="false">Perfil</a>      
+      </li>
+        <li class="nav-item" role="presentation">   
+        <a class="nav-link" href="{{route('salir')}}">SALIR</a>
+        </li>
       </ul>
   
 
   </header>
+  
+ 
+  <div class="alert container position-sticky top-0 alert-primary welcome" role="alert" id ="mydiv">
+    <div class="row ">
+      <div class="col">
+        Has iniciado sesión correctamente <?php  echo $nombre ?>
+      </div>
+      <div class="col ">
+        <button  class="btn btn-primary boton_bienvenida"onclick="desaparecer()">Aceptar</button>
+      </div>
+    </div>
+   </div> 
+ 
 
   <div class="alert container position-sticky top-0 alert-primary hide" role="alert">
     Calzado añadido al carrito
@@ -101,6 +136,7 @@
                       <img src="./img/promocion/{{$calzado->imagen}}" class=" imagen_fija img-fluid img-thumbnail" alt="" >
                     </div>
                   </div>
+                  <h6  class="id" style ="visibility:collapse; display:none;">{{$calzado->id}}</h6>
                   <h6 class= "marca"> {{$calzado->marca}}</h6>
                   <h6 class= "detalle"> {{$calzado->detalle}}</h6>
                   <h5 class=" precio text-primary ">Bs. {{$calzado->precio}}</h5>
@@ -141,7 +177,7 @@
                   </div>
                   <h6 class= "marca"> {{$calzado1->marca}}</h6>
                   <h6 class= "detalle"> {{$calzado1->detalle}}</h6>
-
+                  <h6  class="id" style ="visibility:collapse; display:none;">{{$calzado1->id}}</h6>
                   <h5 class="precio text-primary">Bs. {{$calzado1->precio}}</h5>
                   <?php
                   $carpeta = "womanh";
@@ -174,6 +210,7 @@
                       <img src="./img/homeh/{{$calzado2->imagen}}" class="imagen_fija img-fluid img-thumbnail" alt="">            
                     </div>
                   </div>
+                  <h6  class="id" style ="visibility:collapse; display:none;">{{$calzado2->id}}</h6>
                   <h6 class= "marca"> {{$calzado2->marca}}</h6>
                   <h6 class= "detalle"> {{$calzado2->detalle}}</h6>
                   
@@ -215,6 +252,7 @@
                 </div>
               </div>
               <h6 class= "marca"> {{$hombre->marca}}</h6>
+              <h6  class="id" style ="visibility:collapse; display:none;">{{$hombre->id}}</h6>
               <h6 class= "detalle"> {{$hombre->detalle}}</h6>
               <h5 class="precio text-primary">Bs. {{$hombre->precio}}</h5>
               <?php
@@ -251,7 +289,7 @@
                     <img src="./img/kidman/{{$niño->imagen}}" class="imagen_fija img-fluid img-thumbnail" alt="">            
                   </div>
                 </div>
-          
+                <h6  class="id" style ="visibility:collapse; display:none;">{{$niño->id}}</h6>
                 <h6 class="marca"> {{$niño->marca}}</h6>
                 <h6 class= "detalle"> {{$niño->detalle}}</h6>
                 
@@ -294,6 +332,7 @@
                 </div>
               </div>
               <h6 class="marca"> {{$mujer->marca}}</h6>
+              <h6  class="id" style ="visibility:collapse; display:none;">{{$mujer->id}}</h6>
               <h6 class="detalle"> {{$mujer->detalle}}</h6>
               <h5 class="precio text-primary">Bs. {{$mujer->precio}}</h5>
               <?php
@@ -330,6 +369,7 @@
                 </div>
               </div>
               <h6 class="marca"> {{$niña->marca}}</h6>
+              <h6 class="id" style ="visibility:collapse; display:none;">{{$niña->id}}</h6>
               <h6 class="detalle"> {{$niña->detalle}}</h6>
               <h5 class="precio text-primary">Bs. {{$niña->precio}}</h5>
               <?php
@@ -358,13 +398,14 @@
               <tr class="text-center">
                 <th scope="col">#</th>
                 <th scope="col">Calzado</th>
+                <th style="visibility: collapse; display:none" scope ="col">ID</th>
                 <th scope="col">Precio</th>
                 <th scope="col">Cantidad</th>
               </tr>
             </thead>
-            <tbody class="CarritoCompras text-center">
+            <tbody class="CarritoCompras text-center" id="tabla-calzados">
               <tr >
-                           
+                            
               </tr>           
             </tbody>      
         </table>
@@ -379,79 +420,7 @@
         </div>
 
       </div>
-      <div class="tab-pane fade" id="pills-iniciosesion" role="tabpanel" aria-labelledby="pills-iniciosesion-tab">
-        <div class="card bg-light text-dark">
-          <img src="../img/img4.jpg" class="card-img" alt="...">
-          <div class="card-img-overlay">
-            <div class="row">
-            <div class="col-sm-6">
-              <h3 class="card-title nav-link1">Ya soy cliente</h3>
-              <div class="card tarjeta__InicioSesion">
-                <div class="card-body">
-                  <div class="titulo text-center ">Inicia tu sesión aquí</div>
-                  <h6 class="card-title text-center">Complete los campos</h6>
-                  <form action ="{{route('loguear')}}" method="POST" id="" >
-                    @csrf 
-                  
-                    <div class="input-group ">
-                      <span class="input-group-text  col-sm-2" > Usuario</span>
-                      <input type="text" aria-label="usuario" name="email" class="form-control">
-                    </div>
-                    <div class="input-group">
-                      <span class="input-group-text col-sm-2 text-center">Password</span>
-                      <input type="password" aria-label="password" name="password" class="form-control"> 
-                    </div><br>
-                  <div class="d-grid gap-2 d-md-flex  justify-content-md-center">
-                    <button type ="submit"class="btn btn-primary">Ingresar</button>
-                  </div>
-                </form>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <h3 class="card-title nav-link1">Soy cliente nuevo</h3>
-              <div class="card tarjeta__Registro">
-                <div class="card-body">             
-                  <div class="titulo text-center ">Regístrate</div><br>
-                  <h6 class="card-title text-center">Complete los campos</h6>
-                  <form action ="{{route('clientes.store2')}}" method="POST" id="" >
-                    @csrf 
-                    @method('POST')
-                    <div class="input-group ">
-                      <span class="input-group-text  col-sm-2" > Nombres</span>
-                      <input type="text" aria-label="usuario" name="nombre" class="form-control">
-                    </div>
-                    <div class="input-group">
-                      <span class="input-group-text col-sm-2 text-center">Apellidos</span>
-                      <input type="text" aria-label="password" name="apellido" class="form-control"> 
-                    </div>
-                    <div class="input-group">
-                      <span class="input-group-text col-sm-2 text-center">Teléfono</span>
-                      <input type="text" aria-label="password" name="telefono" class="form-control"> 
-                    </div>                  
-                    <div class="input-group">
-                      <span class="input-group-text col-sm-2 text-center">Correo</span>
-                      <input type="text" aria-label="password" name="email" class="form-control"> 
-                    </div>
-                    <div class="input-group">
-                      <span class="input-group-text col-sm-2 text-center">Password</span>
-                      <input type="password" aria-label="password" name="password" class="form-control"> 
-                    </div><br>
-                    
-                  <div class="d-grid gap-2 d-md-flex  justify-content-md-center">
-                    <button  type="submit"class="btn btn-primary">Registrarse</button>
-                  </div>
-                </form>
-                </div>
-              </div>
-            </div>
-          </div>
-          </div>
-        </div>
-      
-         
-          
-      
+      <div class="tab-pane fade" id="pills-perfil" role="tabpanel" aria-labelledby="pills-perfil-tab">    
       </div>
     
     </div>

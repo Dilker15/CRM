@@ -12,6 +12,7 @@ function addToCarritoItem(e){
     const button = e.target
     const item = button.closest('.col-lg-3')
    // const itemMarca=   calzado.dataset.marca
+    const itemID = item.querySelector('.id').textContent;
     const itemMarca = item.querySelector('.marca').textContent;
     const itemDetalle = item.querySelector('.detalle').textContent;
     const itemPrecio = item.querySelector('.precio').textContent;
@@ -21,6 +22,7 @@ function addToCarritoItem(e){
     //console.log(itemImg)
     //console.log(button)
     const newItem ={
+        id:itemID,
         marca: itemMarca,
         detalle: itemDetalle,
         precio: itemPrecio,
@@ -29,7 +31,18 @@ function addToCarritoItem(e){
     }
     addItemCarrito(newItem)
 }
+function BienvenidaUsuario(){
+    const alert = document.querySelector('.alert')
+    setTimeout(function(){
+    alert.classList.add('welcome')
+    },2000)
+    alert.classList.remove('welcome')
 
+}
+ function desaparecer(){
+    var x = document.getElementById("mydiv");
+    x.style.display ="none";
+ }
 function addItemCarrito(newItem){
     const alert = document.querySelector('.alert')
 setTimeout(function(){
@@ -58,12 +71,14 @@ function renderCarrito(){
         tr.classList.add('ItemCarrito')
         const Content = `
         <th scope="row">1</th>
+                <td "
                 <td class="table__productos">
                   <img src = ${item.img} alt ="" class="i">  
                   <div class="col">
                   <h6 class="tittle">${item.marca}</h6>       
                   <h6 class="">${item.detalle}</h6> </div>  
                 </td>
+                <td style ="visibility:collapse; display:none;">${item.id}</td>
                 <td class="table__price"><p> ${item.precio}</p></td>
                 <td class="table__cantidad">
                   <input type ="number" min="1" value =${item.cantidad} class="input__elemento">
@@ -148,3 +163,4 @@ window.onload = function(){
           window.location.href = "/";
     });
          } 
+
