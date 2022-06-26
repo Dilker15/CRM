@@ -97,7 +97,7 @@ class ClienteController extends Controller
         $persona_id= $cliente->id;
         $this->crearUsuario1($inputs['nombre'],$email,$contraseña,$rol_id,$persona_id);
         
-       return redirect()->route('tienda.principal');
+       return redirect()->route('tienda');
      // return view('tienda.principal');
     }   
 
