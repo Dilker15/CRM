@@ -84,3 +84,12 @@ Route::POST('/carrito',[CarritoController::class,'compra'])->name('compra');
 Route::get('/ventas',[VentaController::class,'index'])->name('ventas');
 Route::get('/show/{venta}',[VentaController::class,'show'])->name('ventas.show');
 Route::get('/pdf',[VentaController::class,'pdf'])->name('ventas.pdf');
+
+//bitacora
+Route::get('/',[BitacoraController::class,'index'])->name('bitacoras.index');
+Route::get('/create',[BitacoraController::class,'create'])->name('bitacoras.create');
+Route::get('/edit/{bitacora}',[BitacoraController::class,'edit'])->name('bitacoras.edit');
+Route::get('/show/{user}',[BitacoraController::class,'show'])->name('bitacoras.show');
+Route::post('/store',[BitacoraController::class,'store'])->name('bitacoras.store');
+Route::put('/update/{bitacora}',[BitacoraController::class,'update'])->name('bitacoras.update');
+Route::delete('/delete',[BitacoraController::class,'destroy'])->name('bitacoras.destroy');
