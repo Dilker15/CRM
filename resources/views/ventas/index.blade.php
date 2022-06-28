@@ -65,7 +65,7 @@
                     @foreach($ventas as $venta)
                         <tr>
                             <td>
-                                {{$venta->id_cliente->nombre}}
+                                {{$venta->id_cliente}}
                             </td>
                             <td>
                                 {{$venta->fechahora}}
