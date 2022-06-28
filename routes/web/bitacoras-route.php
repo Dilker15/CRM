@@ -6,7 +6,7 @@ use App\Http\Controllers\Bitacora\BitacoraController;
 
 Route::prefix('bitacora')->name('bitacoras.')->middleware(['auth'])->group(function(){
 
-        Route::get('/',[BitacoraController::class,'index'])->name('index');
+        Route::get('/bitacora',[BitacoraController::class,'index'])->name('index');
 
         Route::get('/create',[BitacoraController::class,'create'])->name('create');
 

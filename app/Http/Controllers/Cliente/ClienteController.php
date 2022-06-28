@@ -147,6 +147,11 @@ class ClienteController extends Controller
 
     }
     
+    public function pdf(){
+        $clientes = Cliente::get();
+        return view('clientes.pdf',compact('clientes'));
+
+    }
     public function SalirCliente(){
         
         $cerrar = "Logout";

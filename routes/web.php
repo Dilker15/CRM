@@ -6,6 +6,7 @@ use App\Http\Controllers\PromocionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\VentaController;
+use App\Http\Controllers\Bitacora\BitacoraController;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,3 +94,5 @@ Route::get('/show/{user}',[BitacoraController::class,'show'])->name('bitacoras.s
 Route::post('/store',[BitacoraController::class,'store'])->name('bitacoras.store');
 Route::put('/update/{bitacora}',[BitacoraController::class,'update'])->name('bitacoras.update');
 Route::delete('/delete',[BitacoraController::class,'destroy'])->name('bitacoras.destroy');
+
+//clientes

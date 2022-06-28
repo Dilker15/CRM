@@ -12,14 +12,7 @@
             <div class="card-title">
                 Clientes:
             </div>
-            <div class="pull-right">
-                <a href="{{route('clientes.create')}}" class="btn btn-sm btn-warning float-right">
-                    <i class="fa fa-plus"></i>
-                    &nbsp;
-                    Agregar Nuevo Cliente
-                </a>
-            </div>
-           
+         
         </div>
         @if(session('success'))
         <div class="alert alert-success" role="alert">
