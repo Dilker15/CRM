@@ -326,7 +326,7 @@ return [
 
         [
             'text' => 'Ventas',
-           'route'  => 'ventas.index',
+           'route'  => 'ventas',
           
             'icon' => 'fas fa-fire-alt',
             //'can' => 'clientes.index', // ASIGNACION DEL PERMISO

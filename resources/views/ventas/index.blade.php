@@ -83,20 +83,7 @@
                                     Ver
                                 </a>
                             </td>
-                            <td>
-                                <form action="{{route('ventas.destroy')}}" method="post">
-                                    @csrf 
-                                    @method('DELETE')
-                                    <input type="hidden" id="admin_id" name="admin_id" value="{{$ventas->id}}">
-                                    <div class="pull-right">
-                                        <button class="btn btn-sm btn-danger float-right p-1" >
-                                            <i class="fa fa-trash"></i>
-                                            &nbsp;
-                                            Eliminar
-                                        </button>
-                                    </div>
-                                </form>
-                            </td>
+                         
 
                         </tr>
                     @endforeach

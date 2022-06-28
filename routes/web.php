@@ -5,6 +5,8 @@ use App\Http\Controllers\Cliente1Controller;
 use App\Http\Controllers\PromocionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\VentaController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -77,4 +79,4 @@ Route::get('/salir',[ClienteController::class,'SalirCliente'])->name('salir');
 
 Route::POST('/carrito',[CarritoController::class,'compra'])->name('compra');
 //Route::post('/carrito/{arreglo}',[CarritoController::class,'compra'])->name('compra');
-
+Route::get('/ventas',[VentaController::class,'index'])->name('ventas');
