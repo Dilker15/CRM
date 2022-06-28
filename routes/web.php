@@ -82,5 +82,5 @@ Route::POST('/carrito',[CarritoController::class,'compra'])->name('compra');
 
 //Ventas
 Route::get('/ventas',[VentaController::class,'index'])->name('ventas');
-Route::get('/show/{venta}',[VentaController::class,'show'])->name('show');
-Route::get('/pdf',[VentaController::class,'pdf'])->name('pdf');
+Route::get('/show/{venta}',[VentaController::class,'show'])->name('ventas.show');
+Route::get('/pdf',[VentaController::class,'pdf'])->name('ventas.pdf');
