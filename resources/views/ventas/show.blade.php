@@ -14,7 +14,7 @@
             Datos generales: {{$venta->nombre}}
         </div>
         <div class="pull-right">
-            <a href="{{route('ventas.index')}}" class="btn btn-sm btn-warning float-right">
+            <a href="{{route('ventas')}}" class="btn btn-sm btn-warning float-right">
                 <i class="fa fa-reply"></i>
             </a>
         </div>

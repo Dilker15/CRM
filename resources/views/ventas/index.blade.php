@@ -30,7 +30,7 @@
             
            <!--   <div class=" pull-right">
                 
-              <a href="{{route('ventas.create')}}"class="btn btn-sm btn-warning float-right">
+              <a href="" class="btn btn-sm btn-warning float-right">
                     <i class="fa fa-plus"></i>
                     &nbsp;
                     Crear Nuevo Administrativo
