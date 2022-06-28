@@ -260,7 +260,7 @@ return [
             //'can' => 'clientes.index', // ASIGNACION DEL PERMISO
         ],
 
-        [
+   /*     [
             'text' => 'Calzados',
            // 'route'  => 'clientes.index',
             'icon' => 'fas fa-fw fa-lock',
@@ -272,7 +272,7 @@ return [
                     'icon' => 'fa fa-glass'
                 ],
             ],
-        ],
+        ],*/
         
         [
             'text'    => 'Roles | Permisos',
@@ -316,13 +316,13 @@ return [
             ],
         ],
 
-        [
+   /*     [
             'text' => 'Promociones',
            'route'  => 'Inicio1',
           
             'icon' => 'fas fa-fire-alt',
             //'can' => 'clientes.index', // ASIGNACION DEL PERMISO
-        ],
+        ],*/
 
         [
             'text' => 'Ventas',

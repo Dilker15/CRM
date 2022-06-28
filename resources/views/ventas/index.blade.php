@@ -66,8 +66,8 @@
 
                     @foreach ($cliente->ventas as $venta)
                      <tr>
-                       <th scope="row"> {{$venta->id}} </th>
-                       <td>  {{ $cliente->nombre }} </td>
+                     
+                       <td>  {{ $cliente->nombre }} {{ $cliente->apellido }} </td>
                        <td> {{$venta->fechahora}} </td>
                        <td> {{$venta->monto_total}} </td>
                        <td>             

@@ -17,9 +17,10 @@ class VentaController extends Controller
         return view('ventas.index',compact('clientes'));
     }
     public function pdf(){
-        $clientes = Cliente::all();
-        $ventas = Venta::get();
-        return view('ventas.pdf',compact('ventas','clientes'));
+     /*   $clientes = Cliente::all();
+        $ventas = Venta::get();*/
+        $clientes = Cliente::with('ventas')->get();
+        return view('ventas.pdf',compact('clientes'));
 
     }
     public function show(Venta $venta)

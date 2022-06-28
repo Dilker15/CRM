@@ -36,24 +36,18 @@
                 </thead>
                 <tbody>
                     <input type="hidden" value="{{$i=0;}}">
-                    @foreach($ventas as $admin)
-                        <input type="hidden" value="{{$i++;}}">
-                        <tr>
-                            <td class="text-center">
-                                {{$i}}
-                            </td>
-                            <td class="text-center">
-                                {{$admin->id_cliente->nombre}}
-                            </td>
-                            <td class="text-center">
-                                {{$admin->fechahora}}
-                            </td>
-                            <td class="text-center">
-                                {{$admin->monto_total}}
-                            </td>
-                          
-                        </tr>
+                    @foreach ($clientes as $cliente)
+                    <input type="hidden" value="{{$i++;}}">
+                    @foreach ($cliente->ventas as $venta)
+                     <tr>                     
+                       <td>  {{ $cliente->nombre }} {{ $cliente->apellido }} </td>
+                       <td> {{$venta->fechahora}} </td>
+                       <td> {{$venta->monto_total}} </td>
+                   
+                     </tr>
                     @endforeach
+                  
+                  @endforeach
                 </tbody>
                 
             </table>
