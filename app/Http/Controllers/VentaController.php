@@ -10,9 +10,11 @@ use App\Models\Cliente\Cliente;
 class VentaController extends Controller
 {
     public function index()
-    {   $clientes = Cliente::all();
-        $ventas = Venta::get();
-        return view('ventas.index',compact('ventas','clientes'));
+    { //  $clientes = Cliente::all();
+       // $ventas = Venta::get();
+        $clientes = Cliente::with('ventas')->get();
+        //return view('ventas.index',compact('ventas','clientes'));
+        return view('ventas.index',compact('clientes'));
     }
     public function pdf(){
         $clientes = Cliente::all();
