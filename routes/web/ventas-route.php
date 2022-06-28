@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\VentaController;
+use App\Http\Controllers\Venta\VentaController;
 use App\Http\Controllers\Cliente\ClienteController;
 
 
