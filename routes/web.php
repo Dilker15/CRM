@@ -73,7 +73,7 @@ Route::get('/detalle/{id}/{carpeta}',[Cliente1Controller::class,'ListarCalzado']
 Route::get('/home',function(){
     return view('tienda.home');
 });
-Route::post('/store',[ClienteController::class,'store2'])->name('store2');
+Route::post('/store',[ClienteController::class,'store2'])->name('store');
 Route::get('/base' ,function(){return view('tienda.login.conexion');});
 Route::post('/Sesión-Iniciada',[ClienteController::class,'loginCliente1'])->name('loguear');
 Route::get('/salir',[ClienteController::class,'SalirCliente'])->name('salir');
@@ -87,7 +87,7 @@ Route::get('/show/{venta}',[VentaController::class,'show'])->name('ventas.show')
 Route::get('/pdf',[VentaController::class,'pdf'])->name('ventas.pdf');
 
 //bitacora
-Route::get('/',[BitacoraController::class,'index'])->name('bitacoras.index');
+Route::get('/bitacora',[BitacoraController::class,'index'])->name('bitacoras.index');
 Route::get('/create',[BitacoraController::class,'create'])->name('bitacoras.create');
 Route::get('/edit/{bitacora}',[BitacoraController::class,'edit'])->name('bitacoras.edit');
 Route::get('/show/{user}',[BitacoraController::class,'show'])->name('bitacoras.show');
