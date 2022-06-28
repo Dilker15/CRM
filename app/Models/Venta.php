@@ -23,6 +23,6 @@ class Venta extends Model
 
   }
   public function cliente(){
-    return $this->belongsTo(Cliente::class,'id_cliente','id');
+    return $this->belongsTo('App\Models\Cliente\Cliente','id_cliente','id');
 }
 }

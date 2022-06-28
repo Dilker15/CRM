@@ -43,6 +43,6 @@ class Cliente extends Model
 
     }
     public function venta(){
-        return $this->hasOne(Venta::class,'ventas');
+        return $this->hasMany('App\Models\Venta','id_cliente','id');
      }
 }
