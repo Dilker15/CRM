@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Administrativo\Administrativo;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
+use App\Models\Bitacora\Bitacora;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class AdministrativoController extends Controller
 {
@@ -48,11 +50,26 @@ class AdministrativoController extends Controller
         $rol_id = 1; 
        // dd($inputs);
 
+       Bitacora::create([
+        'user_id' => 1,
+        'accion' => Bitacora::TIPO_CREO,
+        'tabla' => 'administrativos',
+        'datos' => 'Se agregaron los siguiente datos '.
+         $inputs['nombre'] . $inputs['correo'] . $inputs['ci'] .'con rol administrativo', 
+
+      ]);
+
         $this->crearUsuario($nombre,$email,$ci,$rol_id,$persona_id);
         return redirect()->route('administrativos.index')->with('success','Administrativo Creado con Exito');
     }
 
-    
+    public function pdf(){
+        $administrativos = Administrativo::get();
+        return view('administrativos.pdf',compact('administrativos'));
+
+    }
+
+
     private function crearUsuario($name,$email,$ci,$rol_id,$persona_id){
 
         $usuario = User::create([
@@ -62,7 +79,7 @@ class AdministrativoController extends Controller
             'role_id' => $rol_id,
             'tipo_id' => 1,
             'persona_id' =>$persona_id,
-
+        
         ]);
         $rol = Role::find($rol_id);
         $usuario->assignRole($rol);

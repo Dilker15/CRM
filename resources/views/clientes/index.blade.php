@@ -34,7 +34,7 @@
     @endif
         
         <div class="card-body table-responsive">
-            <table id="miTabla"  class="table table-striped table-bordered" style="width:100%">
+            <table id="miTabla"  class="table table-striped table-bordered table-hover" style="width:100%">
                 <thead>
                     <tr>
                         <th>
