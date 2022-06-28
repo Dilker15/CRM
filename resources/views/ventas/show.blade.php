@@ -11,7 +11,7 @@
 <div class="card-custom">
     <div class="card-header bg-secondary">
         <div class="card-title">
-            Datos generales: {{$venta->nombre}}
+            Datos generales:
         </div>
         <div class="pull-right">
             <a href="{{route('ventas')}}" class="btn btn-sm btn-warning float-right">
@@ -25,7 +25,7 @@
                 <label for="nombre">
                     Nombre:
                 </label>
-                <input type="text" name="nombre" id="nombre" value="{{$venta->id_cliente->nombre}}" class="form form-control" readonly >
+                <input type="text" name="nombre" id="nombre" value="{{$venta->id}}" class="form form-control" readonly >
             </div> 
             <div class="col-md-4">
                 <label for="Apellidos">
@@ -36,7 +36,7 @@
 
             <div class="col-md-4">
                 <label for="Apellidos">
-                    Fecha y hora:
+                   Cantidad
                 </label>
                 <input type="text" name="monto" id="monto" value="{{$venta->monto_total}}" class="form form-control" readonly>
             </div>

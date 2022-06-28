@@ -62,32 +62,26 @@
                 </thead>
                 <tbody>
 
-                    @foreach($ventas as $venta)
-                        <tr>
-                            <td>
-                                {{$venta->id_cliente}}
-                            </td>
-                            <td>
-                                {{$venta->fechahora}}
-                            </td>
-                            <td>
-                                {{$venta->monto_total}}
-                            </td>
-                            
-                           
-                         
-                            <td>
-                                <a href="{{route('ventas.show',$venta)}}" class="btn btn-sm btn-info p-1">
-                                    <i class="fa fa-eye"></i>
-                                    &nbsp;
-                                    Ver
-                                </a>
-                            </td>
-                         
+                    @foreach ($clientes as $cliente)
 
-                        </tr>
+                    @foreach ($cliente->ventas as $venta)
+                     <tr>
+                       <th scope="row"> {{$venta->id}} </th>
+                       <td>  {{ $cliente->nombre }} </td>
+                       <td> {{$venta->fechahora}} </td>
+                       <td> {{$venta->monto_total}} </td>
+                       <td>             
+                        <a href="{{route('ventas.show',$venta)}}" class="btn btn-sm btn-info p-1">
+                            <i class="fa fa-eye"></i>
+                            &nbsp;
+                            Ver
+                        </a>
+                  
+                        </td>
+                     </tr>
                     @endforeach
-                   
+                  
+                  @endforeach
                 </tbody>
                
             </table>
