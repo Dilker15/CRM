@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Cliente\Cliente;
+use App\Models\Calzado;
 class Venta extends Model
 {
    // use HasFactory;
@@ -21,4 +22,7 @@ class Venta extends Model
     return $this->belongsToMany('App\Models\Calzado','calzado_venta','id_calzado','venta_id');
 
   }
+  public function cliente(){
+    return $this->belongsTo(Cliente::class,'id_cliente','id');
+}
 }
