@@ -17,8 +17,6 @@
         }
        }
       }        
-
-
 ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -52,8 +50,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
     <!--*********************************************************************************************************************************************************************-->
-  
-    <link rel="stylesheet" href="{{secure_asset('css/oficial.css')}}">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <link rel="stylesheet" href="{{asset('css/oficial.css')}}">
     <link rel="stylesheet" href="css/oficial.css ">
   </head>
 
@@ -392,14 +390,15 @@
       </div>
       <div class="tab-pane fade carrito" id="pills-carrito" role="tabpanel" aria-labelledby="pills-carrito-tab">
         <h3 class="fuente3"> Lista de calzados</h3><br>
-        <table class="table table-dark table-striped t">
+        <table class="table table-dark table-striped t tabla-calzados">
       
             <thead>
-              <tr class="text-center">
+              <tr class="text-center ">
                 <th scope="col">#</th>
                 <th scope="col">Calzado</th>
-                <th style="visibility: collapse; display:none" scope ="col">ID</th>
+                <th class="codigo"style="visibility: collapse; display:none" scope ="col">ID</th>
                 <th scope="col">Precio</th>
+                <th class="cantidad"style="visibility: collapse; display:none" scope ="col">cantidad1</th>
                 <th scope="col">Cantidad</th>
               </tr>
             </thead>
@@ -415,16 +414,20 @@
             <h3 class="itemCartotal">Total: 0</h3>
           </div>
           <div class="col d-flex justify-content-end">
-            <button class="btn btn-success">Comprar</button>
+         
+<a href="#" onclick=" compra ('{{route('compra')}}')"  >Comprar</a>
+    </form>
           </div>
+          <div id="respuestaSubida"></div>
         </div>
 
       </div>
+    
       <div class="tab-pane fade" id="pills-perfil" role="tabpanel" aria-labelledby="pills-perfil-tab">    
       </div>
     
     </div>
-  
+     
      <footer class="bg-dark p-3 mt-5">
         <p class=" navbar-brand text-center m-0 text-muted ">
           CalzadoManía
@@ -436,6 +439,11 @@
       integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
       crossorigin="anonymous"
     ></script>
+
+ 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" />
     <!-- JavaScript Bundle with Popper -->
@@ -445,6 +453,7 @@
       integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
       crossorigin="anonymous">
     </script>
-    <script src="js/scripts.js"></script>
+    <script src="js/scripts.js">    
+    </script>
   </body>
 </html>

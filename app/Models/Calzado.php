@@ -22,6 +22,8 @@ class Calzado extends Model
       return $this->belongsToMany('App\Models\Promocion\Promocion');
   }
 
-
+public function venta(){
+      return $this->belongsToMany('App\Models\Venta','calzado_venta','id_calzado','venta_id');
+}
 
 }

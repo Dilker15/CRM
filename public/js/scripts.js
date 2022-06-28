@@ -80,6 +80,7 @@ function renderCarrito(){
                 </td>
                 <td style ="visibility:collapse; display:none;">${item.id}</td>
                 <td class="table__price"><p> ${item.precio}</p></td>
+                <td style ="visibility:collapse; display:none;">${item.cantidad}</td>
                 <td class="table__cantidad">
                   <input type ="number" min="1" value =${item.cantidad} class="input__elemento">
                   <button class="delete btn btn-danger">x</button>
@@ -163,4 +164,17 @@ window.onload = function(){
           window.location.href = "/";
     });
          } 
+
+function compra(url){
+    var arrayaenviar = [1,2,3,4]; //array que deseo enviar
+    $.ajax({
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+		type: "POST",
+		url: url,
+		data: {arrayaenviar },
+		success: function(data)  {
+           // console.log(data);
+		}
+	});
+}
 

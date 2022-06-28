@@ -4,7 +4,7 @@ use App\Http\Controllers\Cliente\ClienteController;
 use App\Http\Controllers\Cliente1Controller;
 use App\Http\Controllers\PromocionController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CarritoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,4 +75,6 @@ Route::get('/base' ,function(){return view('tienda.login.conexion');});
 Route::post('/Sesión-Iniciada',[ClienteController::class,'loginCliente1'])->name('loguear');
 Route::get('/salir',[ClienteController::class,'SalirCliente'])->name('salir');
 
+Route::POST('/carrito',[CarritoController::class,'compra'])->name('compra');
+//Route::post('/carrito/{arreglo}',[CarritoController::class,'compra'])->name('compra');
 
