@@ -5,7 +5,7 @@ use App\Http\Controllers\Cliente1Controller;
 use App\Http\Controllers\PromocionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarritoController;
-use App\Http\Controllers\VentaController;
+use App\Http\Controllers\Venta\VentaController;
 
 /*
 |--------------------------------------------------------------------------
