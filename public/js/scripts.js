@@ -84,7 +84,8 @@ function renderCarrito(){
                 <td class="table__cantidad">
                   <input type ="number" min="1" value =${item.cantidad} class="input__elemento">
                   <button class="delete btn btn-danger">x</button>
-                </td> `
+                </td>
+                 `
         
     tr.innerHTML =Content;
     CarritoCompras.append(tr)
@@ -100,10 +101,22 @@ function CarritoTotal(){
     const itemCartTotal = document.querySelector('.itemCartotal')
     carrito.forEach((item) => {
         const precio = Number(item.precio.replace("Bs.",''))
-        total = total + precio*item.cantidad
+        total = Math.round((total + precio*item.cantidad)*100)/100
     })
     itemCartTotal.innerHTML = `Total Bs. ${total}`
     addLocalStorage()
+}
+
+function CarritoTotal1(){
+    let total = 0;
+    const itemCartTotal = document.querySelector('.itemCartotal')
+    carrito.forEach((item) => {
+        const precio = Number(item.precio.replace("Bs.",''))
+        total = Math.round((total + precio*item.cantidad)*100)/100
+    })
+    itemCartTotal.innerHTML = `Total Bs. ${total}`
+    addLocalStorage()
+    return total;
 }
 
 function removeItemCarrito(e){
@@ -165,16 +178,57 @@ window.onload = function(){
     });
          } 
 
-function compra(url){
-    var arrayaenviar = [1,2,3,4]; //array que deseo enviar
-    $.ajax({
-        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-		type: "POST",
-		url: url,
-		data: {arrayaenviar },
-		success: function(data)  {
-           // console.log(data);
-		}
-	});
+function fechayhora(){
+    var hoy = new Date();
+
+    var fecha =hoy.toISOString().split('T')[0];
+    var hora= hoy.toLocaleTimeString()
+    var fechaYHora = fecha + ' ' + hora;
+    return fechaYHora;
+}
+function insertarDatosVentas(fechahora,monto_total,id_cliente){
+    var mysql = require('mysql')
+
+    var con =mysql.createConnection({
+       host: "localhost:3307",
+       user: "root",
+       password: "",
+       database: "proyectosi2", 
+    })
+    con.connect(function(err){
+        if(err)throw err;
+        var sql ="Insert into ventas(fechahora,monto_total,id_cliente)values ?";
+        var values = [[fechahora,monto_total,id_cliente]]
+        con.query(sql,[values],function(err,result){
+            if(err)throw err;
+            console.log("insert data sucess")
+        })
+    
+    })
+}
+function compra(){
+
+    var com= [];
+    var monto_total = CarritoTotal1();
+    var ide = document.getElementById("iduser").value; 
+    for (var i = 1; i < document.getElementById('mitabla').rows.length; i++) {
+            let id=  document.getElementById('mitabla').rows[i].cells[2].innerHTML;
+            let cantidad=  document.getElementById('mitabla').rows[i].cells[4].innerHTML;
+            var fechaYHora = fechayhora();
+            console.log(id);
+            console.log(cantidad);
+            console.log(fechaYHora);
+            console.log(monto_total);
+            
+            console.log(ide);
+
+            com.push(id);
+            com.push(cantidad);
+            insertarDatosVentas(fechaYHora,monto_total,ide)
+}/*
+})*/
+console.log(com);
+
+
 }
 

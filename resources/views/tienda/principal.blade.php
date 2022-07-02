@@ -31,8 +31,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
     <!--*********************************************************************************************************************************************************************-->
-    <link rel="stylesheet" href="{{secure_asset('css/s1.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('css/oficial.css')}}">
+    <link rel="stylesheet" href="{{asset('css/s1.css')}}">
+    <link rel="stylesheet" href="{{asset('css/oficial.css')}}">
     <link rel="stylesheet" href="css/oficial.css">
   </head>
 
@@ -352,6 +352,8 @@
       </div>
       <div class="tab-pane fade carrito" id="pills-carrito" role="tabpanel" aria-labelledby="pills-carrito-tab">
         <h3 class="fuente3"> Lista de calzados</h3><br>
+
+       
         <table class="table table-dark table-striped t">
       
             <thead>
@@ -368,6 +370,7 @@
               </tr>           
             </tbody>      
         </table>
+    
         <br><br>
         <div class="row mx-4">
           <div class="col">
@@ -377,7 +380,7 @@
             <button class="btn btn-success">Comprar</button>
           </div>
         </div>
-
+      </form>
       </div>
       <div class="tab-pane fade" id="pills-iniciosesion" role="tabpanel" aria-labelledby="pills-iniciosesion-tab">
         <div class="card bg-light text-dark">

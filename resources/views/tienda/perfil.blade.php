@@ -25,6 +25,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#bla"  />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>CalzadoManía</title>
      
 
@@ -51,7 +52,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
     <!--*********************************************************************************************************************************************************************-->
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <link rel="stylesheet" href="{{secure_asset('css/oficial.css')}}">
+    <link rel="stylesheet" href="{{asset('css/oficial.css')}}">
     <link rel="stylesheet" href="css/oficial.css ">
   </head>
 
@@ -390,40 +391,49 @@
       </div>
       <div class="tab-pane fade carrito" id="pills-carrito" role="tabpanel" aria-labelledby="pills-carrito-tab">
         <h3 class="fuente3"> Lista de calzados</h3><br>
-        <table class="table table-dark table-striped t tabla-calzados">
-      
-            <thead>
-              <tr class="text-center ">
-                <th scope="col">#</th>
-                <th scope="col">Calzado</th>
-                <th class="codigo"style="visibility: collapse; display:none" scope ="col">ID</th>
-                <th scope="col">Precio</th>
-                <th class="cantidad"style="visibility: collapse; display:none" scope ="col">cantidad1</th>
-                <th scope="col">Cantidad</th>
-              </tr>
-            </thead>
-            <tbody class="CarritoCompras text-center" id="tabla-calzados">
-              <tr >
-                            
-              </tr>           
-            </tbody>      
-        </table>
-        <br><br>
-        <div class="row mx-4">
-          <div class="col">
-            <h3 class="itemCartotal">Total: 0</h3>
+        <form id ="SubmitForm">
+          <table class="table table-dark table-striped t tabla-calzados" id="mitabla">
+                <thead>
+                  <tr class="text-center ">
+                    <th scope="col">#</th>
+                    <th scope="col">Calzado</th>
+                    <th class="codigo"style="visibility: collapse; display:none" scope ="col">ID</th>
+                    <th scope="col">Precio</th>
+                    <th class="cantidad"style="visibility: collapse; display:none" scope ="col">cantidad1</th>
+                    <th scope="col">Cantidad</th>
+ 
+                  </tr>
+                </thead>
+                  <tbody class="CarritoCompras text-center" id="tabla-calzados">
+                    <tr >
+                                  
+                    </tr>           
+                  </tbody>      
+            </table>
+            <br><br>
+          <div class="row mx-4">
+            <div class="col">
+              <h3 class="itemCartotal">Total: 0</h3>
+              
+            </div>
+            <div class="col d-flex justify-content-end">
+              <div class="row">
+                <div class="col">
+                  <button type="submit" class="btn btn-success">Confirmar</button>
+                </div>
+            
+                <div class="col">
+                  <input id="iduser" name="iduser" type="hidden" value="{{$id}}">
+                  <a href="#" class="btn btn-success" onclick=" compra ()"  >Comprar</a>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="col d-flex justify-content-end">
-         
-<a href="#" onclick=" compra ('{{route('compra')}}')"  >Comprar</a>
-    </form>
-          </div>
-          <div id="respuestaSubida"></div>
-        </div>
-
+        </form>
       </div>
     
-      <div class="tab-pane fade" id="pills-perfil" role="tabpanel" aria-labelledby="pills-perfil-tab">    
+      <div class="tab-pane fade" id="pills-perfil" role="tabpanel" aria-labelledby="pills-perfil-tab">  
+    
       </div>
     
     </div>
@@ -440,7 +450,7 @@
       crossorigin="anonymous"
     ></script>
 
- 
+     <script src="https://cdnjs.cloudflare.com/ajax/lisb/jquery/3.2.1/jquery.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 

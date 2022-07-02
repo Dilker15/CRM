@@ -8,9 +8,13 @@ use Illuminate\Http\Request;
 
 class CarritoController extends Controller
 {
-    public function compra ( Request $request){
-        $array=json_decode($_POST["arrayaenviar"]);
-        return view('tienda.prueba');
+    public function compra ( $com){
+     
+        return view('tienda.prueba.php');
+        
+   
+ 
+     
     }
 }
 

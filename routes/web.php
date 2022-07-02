@@ -51,10 +51,10 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    ])->group(function () {
+        Route::get('/dashboard', function () {
+            return view('dashboard');
+        })->name('dashboard');
 });
 
 
@@ -80,6 +80,10 @@ Route::get('/salir',[ClienteController::class,'SalirCliente'])->name('salir');
 
 Route::POST('/carrito',[CarritoController::class,'compra'])->name('compra');
 //Route::post('/carrito/{arreglo}',[CarritoController::class,'compra'])->name('compra');
+
+
+//Carrito
+Route::post('/carrito',[CarritoController::class,'compra'])->name('comprita');
 
 //Ventas
 Route::get('/ventas',[VentaController::class,'index'])->name('ventas');
