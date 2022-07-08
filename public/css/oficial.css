@@ -258,3 +258,10 @@ background: rgb(29, 28, 28);
 .boton_bienvenida{
     margin-left: 20cm;
 }
+
+.imagen_carrusel{
+    background-size: cover;
+    height:80vh;
+    background-position: 50% 50%;
+    width: 100%;
+}

@@ -52,7 +52,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
     <!--*********************************************************************************************************************************************************************-->
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <link rel="stylesheet" href="{{asset('css/oficial.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/oficial.css')}}">
     <link rel="stylesheet" href="css/oficial.css ">
   </head>
 
@@ -106,19 +106,37 @@
 
     <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="pills-principal" role="tabpanel" aria-labelledby="pills-principal-tab">
-          <section class="main">
-            <div class="container">
-                <div class="row py-4">
-                    <div class="col-lg-7 pt-5 text-center">
-                      <h1 class="text-danger">La moda </h1>     
-                      <h1 class="h0 text-light"> caduca,</h1>  
-                      <h1 class="text-primary"> el estilo</h1>
-                      <h1 class="text-light"> jamás</h1>                 
-                      <!--<button class="btn1 mt-3"></button> -->
-                    </div>
-                </div>
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+          <ol class="carousel-indicators">
+            @forelse ($promociones as $promocion)
+            <li type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to={{$promocion->id}} class="@if($loop->index ==0) active @endif"></li>
+            @empty            
+            @endforelse
+          </ol>
+      
+          <div class="carousel-inner">
+            @forelse($promociones as $promocion)
+          
+            <div class="carousel-item  @if($loop->index ==0) active @endif" data-bs-interval="2000">
+              <img src="./img/carrusel/{{$promocion->imagen}}" class="d-block w-100 imagen_carrusel" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>{{$promocion->descuento}}%</h5>
+                <p>{{$promocion->descripcion}}</p>
+              </div>
             </div>
-        </section>
+         
+            @empty            
+            @endforelse
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
    
           <div class=" container py-5">
             <div class="row ">
@@ -463,7 +481,12 @@
       integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
       crossorigin="anonymous">
     </script>
-    <script src="js/scripts.js">    
+    <script src="js/scripts.js">   
+    $( document ).ready(function(){
+    $('.carousel').carousel({
+      interval: 2000
+    })
+}); 
     </script>
   </body>
 </html>

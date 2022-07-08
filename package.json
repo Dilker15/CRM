@@ -37,5 +37,8 @@
   "bugs": {
     "url": "https://github.com/Dilker15/CRM/issues"
   },
-  "homepage": "https://github.com/Dilker15/CRM#readme"
+  "homepage": "https://github.com/Dilker15/CRM#readme",
+  "dependencies": {
+    "mysql": "github:mysqljs/mysql"
+  }
 }

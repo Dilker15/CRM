@@ -187,7 +187,7 @@ function fechayhora(){
     return fechaYHora;
 }
 function insertarDatosVentas(fechahora,monto_total,id_cliente){
-    var mysql = require('mysql')
+    var mysql = require('mysql');
 
     var con =mysql.createConnection({
        host: "localhost:3307",

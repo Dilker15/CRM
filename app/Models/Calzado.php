@@ -19,7 +19,7 @@ class Calzado extends Model
 
   public function promocion()
   {
-      return $this->belongsToMany('App\Models\Promocion\Promocion');
+      return $this->belongsTo('App\Models\Promocion');
   }
 
 public function venta(){

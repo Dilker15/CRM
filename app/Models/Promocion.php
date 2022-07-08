@@ -14,13 +14,16 @@ class Promocion extends Model
         'id',
         'descripcion',
         'fecha_inicio',
-        'fecha_fin',   
+        'fecha_fin',
+        'descuento',
+        'calzado_id',  
+        'imagen', 
     ];
 
     protected $hidden =['id'];
 
-    public function calzados()
+    public function calzado()
     {
-        return $this->belongsToMany('App\Models\Calzado');
+        return $this->hasOne('App\Models\Calzado','calzado_id','id');
     }
 }

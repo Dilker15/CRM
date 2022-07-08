@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Cliente;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cliente\Cliente;
+use App\Models\Promocion;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
@@ -128,6 +129,7 @@ class ClienteController extends Controller
             ['password', '=',$password],
           ])->get(); 
           if(count($consulta)>=1 ){  
+            $promociones = Promocion::all();
             $calzados =  DB::table('calzado')->where('estado','=','Promocion')->get();
             $calzados1 = DB::table('calzado')->where([['estado','=','Destacado'],['tipo', '=','mujer'],])->get();
             $calzados2 = DB::table('calzado') ->where([['estado','=','Destacado'],['tipo', '=','hombre'],])->get();
@@ -139,7 +141,7 @@ class ClienteController extends Controller
             $nombre = DB::table('users')->where('email','=', $email)->value('name');
             $id =DB::table('users')->where('email','=', $email)->value('id');
             return view('tienda.perfil',compact('calzados','calzados1','calzados2',
-                        'hombres','niños','mujeres','niñas','nombre','id'));
+                        'hombres','niños','mujeres','niñas','nombre','id','promociones'));
      //   return view('tienda.prueba',compact('nombre','id'));
         }else{
             return "Datos incorrectos";
