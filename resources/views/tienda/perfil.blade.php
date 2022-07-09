@@ -17,11 +17,7 @@
         }
        }
       }        
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 749f5c5f44589d66cf67fcb0242f807f9dbd1f69
 ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,10 +26,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#bla"  />
-<<<<<<< HEAD
-=======
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
->>>>>>> 749f5c5f44589d66cf67fcb0242f807f9dbd1f69
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
     <title>CalzadoManía</title>
      
 
@@ -59,11 +57,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
     <!--*********************************************************************************************************************************************************************-->
-<<<<<<< HEAD
-  
-=======
+
     <meta name="csrf-token" content="{{ csrf_token() }}" />
->>>>>>> 749f5c5f44589d66cf67fcb0242f807f9dbd1f69
+
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+
     <link rel="stylesheet" href="{{secure_asset('css/oficial.css')}}">
     <link rel="stylesheet" href="css/oficial.css ">
   </head>
@@ -118,7 +117,7 @@
 
     <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="pills-principal" role="tabpanel" aria-labelledby="pills-principal-tab">
-<<<<<<< HEAD
+
           <section class="main">
             <div class="container">
                 <div class="row py-4">
@@ -132,7 +131,7 @@
                 </div>
             </div>
         </section>
-=======
+
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
           <ol class="carousel-indicators">
             @forelse ($promociones as $promocion)
@@ -164,7 +163,7 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
->>>>>>> 749f5c5f44589d66cf67fcb0242f807f9dbd1f69
+
    
           <div class=" container py-5">
             <div class="row ">
@@ -437,7 +436,7 @@
       </div>
       <div class="tab-pane fade carrito" id="pills-carrito" role="tabpanel" aria-labelledby="pills-carrito-tab">
         <h3 class="fuente3"> Lista de calzados</h3><br>
-<<<<<<< HEAD
+
         <table class="table table-dark table-striped t">
       
             <thead>
@@ -471,7 +470,6 @@
     
     </div>
   
-=======
         <form id ="SubmitForm">
           <table class="table table-dark table-striped t tabla-calzados" id="mitabla">
                 <thead>
@@ -519,7 +517,7 @@
     
     </div>
      
->>>>>>> 749f5c5f44589d66cf67fcb0242f807f9dbd1f69
+
      <footer class="bg-dark p-3 mt-5">
         <p class=" navbar-brand text-center m-0 text-muted ">
           CalzadoManía
@@ -531,14 +529,16 @@
       integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
       crossorigin="anonymous"
     ></script>
-<<<<<<< HEAD
-=======
+
+
 
      <script src="https://cdnjs.cloudflare.com/ajax/lisb/jquery/3.2.1/jquery.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
->>>>>>> 749f5c5f44589d66cf67fcb0242f807f9dbd1f69
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" />
     <!-- JavaScript Bundle with Popper -->
@@ -548,18 +548,18 @@
       integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
       crossorigin="anonymous">
     </script>
-<<<<<<< HEAD
+
     <script src="js/scripts.js"></script>
   </body>
 </html>
-=======
+
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
+
+
     <script src="js/scripts.js">   
-    $( document ).ready(function(){
-    $('.carousel').carousel({
-      interval: 2000
-    })
-}); 
+ 
     </script>
   </body>
 </html>
->>>>>>> 749f5c5f44589d66cf67fcb0242f807f9dbd1f69
