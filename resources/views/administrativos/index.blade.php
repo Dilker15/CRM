@@ -17,15 +17,28 @@
                     {{session('success')}}
                 </div>
             @endif
-
+           
             </div>
+           
             <div class="pull-right">
+                <a href="{{route('administrativos.pdf')}}"class="btn btn-sm btn-danger ml-2 float-left">
+                    <i class="fa fa-book"></i>
+                    &nbsp;
+                    PDF
+                </a>
+            </div> 
+            
+            <div class=" pull-right">
+                
                 <a href="{{route('administrativos.create')}}"class="btn btn-sm btn-warning float-right">
                     <i class="fa fa-plus"></i>
                     &nbsp;
                     Crear Nuevo Administrativo
                 </a>
+
             </div>
+            
+            
         </div>
       
         <div class="card-body">         
@@ -138,7 +151,6 @@
     $(document).ready(function() {
     $('#miTabla').DataTable();
 } )
-
     </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

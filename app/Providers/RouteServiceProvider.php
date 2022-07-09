@@ -50,6 +50,9 @@ class RouteServiceProvider extends ServiceProvider
     
             Route::middleware('web')
                 ->group(base_path('routes/web/roles-route.php'));
+            
+            Route::middleware('web')
+            ->group(base_path('routes/web/bitacoras-route.php'));
         });
     }
 

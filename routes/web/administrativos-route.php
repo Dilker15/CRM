@@ -23,7 +23,7 @@ Route::prefix('administrativos')->name('administrativos.')->middleware(['auth'])
 
     Route::delete('/delete',[AdministrativoController::class,'destroy'])->name('destroy');
 
-   
+    Route::get('/pdf',[AdministrativoController::class,'pdf'])->name('pdf');
    
 
 

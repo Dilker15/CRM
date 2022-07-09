@@ -17,8 +17,11 @@
         }
        }
       }        
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 749f5c5f44589d66cf67fcb0242f807f9dbd1f69
 ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +30,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#bla"  />
+<<<<<<< HEAD
+=======
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+>>>>>>> 749f5c5f44589d66cf67fcb0242f807f9dbd1f69
     <title>CalzadoManía</title>
      
 
@@ -52,7 +59,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
     <!--*********************************************************************************************************************************************************************-->
+<<<<<<< HEAD
   
+=======
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+>>>>>>> 749f5c5f44589d66cf67fcb0242f807f9dbd1f69
     <link rel="stylesheet" href="{{secure_asset('css/oficial.css')}}">
     <link rel="stylesheet" href="css/oficial.css ">
   </head>
@@ -107,6 +118,7 @@
 
     <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="pills-principal" role="tabpanel" aria-labelledby="pills-principal-tab">
+<<<<<<< HEAD
           <section class="main">
             <div class="container">
                 <div class="row py-4">
@@ -120,6 +132,39 @@
                 </div>
             </div>
         </section>
+=======
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+          <ol class="carousel-indicators">
+            @forelse ($promociones as $promocion)
+            <li type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to={{$promocion->id}} class="@if($loop->index ==0) active @endif"></li>
+            @empty            
+            @endforelse
+          </ol>
+      
+          <div class="carousel-inner">
+            @forelse($promociones as $promocion)
+          
+            <div class="carousel-item  @if($loop->index ==0) active @endif" data-bs-interval="2000">
+              <img src="./img/carrusel/{{$promocion->imagen}}" class="d-block w-100 imagen_carrusel" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>{{$promocion->descuento}}%</h5>
+                <p>{{$promocion->descripcion}}</p>
+              </div>
+            </div>
+         
+            @empty            
+            @endforelse
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+>>>>>>> 749f5c5f44589d66cf67fcb0242f807f9dbd1f69
    
           <div class=" container py-5">
             <div class="row ">
@@ -392,6 +437,7 @@
       </div>
       <div class="tab-pane fade carrito" id="pills-carrito" role="tabpanel" aria-labelledby="pills-carrito-tab">
         <h3 class="fuente3"> Lista de calzados</h3><br>
+<<<<<<< HEAD
         <table class="table table-dark table-striped t">
       
             <thead>
@@ -425,6 +471,55 @@
     
     </div>
   
+=======
+        <form id ="SubmitForm">
+          <table class="table table-dark table-striped t tabla-calzados" id="mitabla">
+                <thead>
+                  <tr class="text-center ">
+                    <th scope="col">#</th>
+                    <th scope="col">Calzado</th>
+                    <th class="codigo"style="visibility: collapse; display:none" scope ="col">ID</th>
+                    <th scope="col">Precio</th>
+                    <th class="cantidad"style="visibility: collapse; display:none" scope ="col">cantidad1</th>
+                    <th scope="col">Cantidad</th>
+ 
+                  </tr>
+                </thead>
+                  <tbody class="CarritoCompras text-center" id="tabla-calzados">
+                    <tr >
+                                  
+                    </tr>           
+                  </tbody>      
+            </table>
+            <br><br>
+          <div class="row mx-4">
+            <div class="col">
+              <h3 class="itemCartotal">Total: 0</h3>
+              
+            </div>
+            <div class="col d-flex justify-content-end">
+              <div class="row">
+                <div class="col">
+                  <button type="submit" class="btn btn-success">Confirmar</button>
+                </div>
+            
+                <div class="col">
+                  <input id="iduser" name="iduser" type="hidden" value="{{$id}}">
+                  <a href="#" class="btn btn-success" onclick=" compra ()"  >Comprar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    
+      <div class="tab-pane fade" id="pills-perfil" role="tabpanel" aria-labelledby="pills-perfil-tab">  
+    
+      </div>
+    
+    </div>
+     
+>>>>>>> 749f5c5f44589d66cf67fcb0242f807f9dbd1f69
      <footer class="bg-dark p-3 mt-5">
         <p class=" navbar-brand text-center m-0 text-muted ">
           CalzadoManía
@@ -436,6 +531,14 @@
       integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
       crossorigin="anonymous"
     ></script>
+<<<<<<< HEAD
+=======
+
+     <script src="https://cdnjs.cloudflare.com/ajax/lisb/jquery/3.2.1/jquery.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+>>>>>>> 749f5c5f44589d66cf67fcb0242f807f9dbd1f69
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" />
     <!-- JavaScript Bundle with Popper -->
@@ -445,6 +548,18 @@
       integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
       crossorigin="anonymous">
     </script>
+<<<<<<< HEAD
     <script src="js/scripts.js"></script>
   </body>
 </html>
+=======
+    <script src="js/scripts.js">   
+    $( document ).ready(function(){
+    $('.carousel').carousel({
+      interval: 2000
+    })
+}); 
+    </script>
+  </body>
+</html>
+>>>>>>> 749f5c5f44589d66cf67fcb0242f807f9dbd1f69
