@@ -12,6 +12,7 @@ function addToCarritoItem(e){
     const button = e.target
     const item = button.closest('.col-lg-3')
    // const itemMarca=   calzado.dataset.marca
+    const itemID = item.querySelector('.id').textContent;
     const itemMarca = item.querySelector('.marca').textContent;
     const itemDetalle = item.querySelector('.detalle').textContent;
     const itemPrecio = item.querySelector('.precio').textContent;
@@ -21,6 +22,7 @@ function addToCarritoItem(e){
     //console.log(itemImg)
     //console.log(button)
     const newItem ={
+        id:itemID,
         marca: itemMarca,
         detalle: itemDetalle,
         precio: itemPrecio,
@@ -29,7 +31,18 @@ function addToCarritoItem(e){
     }
     addItemCarrito(newItem)
 }
+function BienvenidaUsuario(){
+    const alert = document.querySelector('.alert')
+    setTimeout(function(){
+    alert.classList.add('welcome')
+    },2000)
+    alert.classList.remove('welcome')
 
+}
+ function desaparecer(){
+    var x = document.getElementById("mydiv");
+    x.style.display ="none";
+ }
 function addItemCarrito(newItem){
     const alert = document.querySelector('.alert')
 setTimeout(function(){
@@ -58,17 +71,21 @@ function renderCarrito(){
         tr.classList.add('ItemCarrito')
         const Content = `
         <th scope="row">1</th>
+                <td "
                 <td class="table__productos">
                   <img src = ${item.img} alt ="" class="i">  
                   <div class="col">
                   <h6 class="tittle">${item.marca}</h6>       
                   <h6 class="">${item.detalle}</h6> </div>  
                 </td>
+                <td style ="visibility:collapse; display:none;">${item.id}</td>
                 <td class="table__price"><p> ${item.precio}</p></td>
+                <td style ="visibility:collapse; display:none;">${item.cantidad}</td>
                 <td class="table__cantidad">
                   <input type ="number" min="1" value =${item.cantidad} class="input__elemento">
                   <button class="delete btn btn-danger">x</button>
-                </td> `
+                </td>
+                 `
         
     tr.innerHTML =Content;
     CarritoCompras.append(tr)
@@ -84,10 +101,22 @@ function CarritoTotal(){
     const itemCartTotal = document.querySelector('.itemCartotal')
     carrito.forEach((item) => {
         const precio = Number(item.precio.replace("Bs.",''))
-        total = total + precio*item.cantidad
+        total = Math.round((total + precio*item.cantidad)*100)/100
     })
     itemCartTotal.innerHTML = `Total Bs. ${total}`
     addLocalStorage()
+}
+
+function CarritoTotal1(){
+    let total = 0;
+    const itemCartTotal = document.querySelector('.itemCartotal')
+    carrito.forEach((item) => {
+        const precio = Number(item.precio.replace("Bs.",''))
+        total = Math.round((total + precio*item.cantidad)*100)/100
+    })
+    itemCartTotal.innerHTML = `Total Bs. ${total}`
+    addLocalStorage()
+    return total;
 }
 
 function removeItemCarrito(e){
@@ -148,3 +177,58 @@ window.onload = function(){
           window.location.href = "/";
     });
          } 
+
+function fechayhora(){
+    var hoy = new Date();
+
+    var fecha =hoy.toISOString().split('T')[0];
+    var hora= hoy.toLocaleTimeString()
+    var fechaYHora = fecha + ' ' + hora;
+    return fechaYHora;
+}
+function insertarDatosVentas(fechahora,monto_total,id_cliente){
+    var mysql = require('mysql');
+
+    var con =mysql.createConnection({
+       host: "localhost:3307",
+       user: "root",
+       password: "",
+       database: "proyectosi2", 
+    })
+    con.connect(function(err){
+        if(err)throw err;
+        var sql ="Insert into ventas(fechahora,monto_total,id_cliente)values ?";
+        var values = [[fechahora,monto_total,id_cliente]]
+        con.query(sql,[values],function(err,result){
+            if(err)throw err;
+            console.log("insert data sucess")
+        })
+    
+    })
+}
+function compra(){
+
+    var com= [];
+    var monto_total = CarritoTotal1();
+    var ide = document.getElementById("iduser").value; 
+    for (var i = 1; i < document.getElementById('mitabla').rows.length; i++) {
+            let id=  document.getElementById('mitabla').rows[i].cells[2].innerHTML;
+            let cantidad=  document.getElementById('mitabla').rows[i].cells[4].innerHTML;
+            var fechaYHora = fechayhora();
+            console.log(id);
+            console.log(cantidad);
+            console.log(fechaYHora);
+            console.log(monto_total);
+            
+            console.log(ide);
+
+            com.push(id);
+            com.push(cantidad);
+            insertarDatosVentas(fechaYHora,monto_total,ide)
+}/*
+})*/
+console.log(com);
+
+
+}
+

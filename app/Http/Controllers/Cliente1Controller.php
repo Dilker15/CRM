@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\Calzado;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Promocion;
+
 class Cliente1Controller extends Controller
 {
     /**
@@ -24,6 +26,8 @@ class Cliente1Controller extends Controller
       //$calzados = Calzado::all();
 
         //calzados destacados
+      //  $promociones =Promocion::all();
+        $promociones = DB::table('promocion')->get();
         $calzados = DB::table('calzado')
                     //->groupBy('marca','precio','stock','estado','detalle','imagen')
                    ->where('estado','=','Promocion')->get();
@@ -48,7 +52,7 @@ class Cliente1Controller extends Controller
         $niños =     DB::table('calzado') ->where('tipo','=','kidman')->get();
         $mujeres = DB::table('calzado')->where('tipo','=','mujer')->get();   
         $niñas =     DB::table('calzado') ->where('tipo','=','kidwoman')->get();            
-      return view('tienda.principal',compact('calzados','calzados1','calzados2','hombres','niños','mujeres','niñas'));
+      return view('tienda.principal',compact('calzados','calzados1','calzados2','hombres','niños','mujeres','niñas','promociones'));
     //  return view('tienda.home1',compact('calzados','calzados1','calzados2'));
 
     }

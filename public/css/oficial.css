@@ -255,3 +255,13 @@ background: rgb(29, 28, 28);
     color:rgb(202, 159, 159);
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.boton_bienvenida{
+    margin-left: 20cm;
+}
+
+.imagen_carrusel{
+    background-size: cover;
+    height:80vh;
+    background-position: 50% 50%;
+    width: 100%;
+}

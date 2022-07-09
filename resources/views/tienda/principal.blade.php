@@ -1,25 +1,4 @@
-<?php
- 
- if((!isset($nombre)) || (!isset($cerrar))){
-   $estado = false;
- }else{
-      if((isset($nombre)) || (!isset($cerrar))){
-        session_start();
-        $_SESSION['nombre'] =$nombre;
-        $_SESSION['ID'] =$id;
-        $estado = true;
-       }else{
-        if(isset($cerrar)){
-        unset( $_SESSION['nombre']);
-        unset( $_SESSION['ID']); 
-        $estado = false; 
-        session_destroy();
-        }
-       }
-      }        
 
-
-?> 
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -75,28 +54,14 @@
         <a class="nav-link" id="pills-carrito-tab" data-bs-toggle="pill" data-bs-target="#pills-carrito" type="button" role="tab" aria-controls="pills-carrito" aria-selected="false">Carrito</a>
       </li>
 
-      <?php if($estado == false){  ?>
+      
       <li class=" nav-item"  role="presentation">
         <a class="nav-link" id="pills-iniciosesion-tab" data-bs-toggle="pill" data-bs-target="#pills-iniciosesion" type="button" role="tab" aria-controls="pills-iniciosesion" aria-selected="false">Inicio de Sesión</a>      </li>
-        <?php } ?>
-        <?php if($estado == true){  ?>
-        <li class="nav-item" role="presentation">   
-          <a class="nav-link" href="{{route('salir')}}">SALIR</a>
-          <?php } ?>
-        </li>
+    
       </ul>
   
 
   </header>
-  
-  <?php
-  if($estado ==true){   ?>
-  <div class="alert container position-sticky top-0 alert-primary hide" role="alert">
-    Has iniciado sesión correctamente
-   </div> 
-  <?php
-  } 
-  ?>
 
   <div class="alert container position-sticky top-0 alert-primary hide" role="alert">
     Calzado añadido al carrito
@@ -387,6 +352,8 @@
       </div>
       <div class="tab-pane fade carrito" id="pills-carrito" role="tabpanel" aria-labelledby="pills-carrito-tab">
         <h3 class="fuente3"> Lista de calzados</h3><br>
+
+       
         <table class="table table-dark table-striped t">
       
             <thead>
@@ -403,6 +370,7 @@
               </tr>           
             </tbody>      
         </table>
+    
         <br><br>
         <div class="row mx-4">
           <div class="col">
@@ -412,7 +380,7 @@
             <button class="btn btn-success">Comprar</button>
           </div>
         </div>
-
+      </form>
       </div>
       <div class="tab-pane fade" id="pills-iniciosesion" role="tabpanel" aria-labelledby="pills-iniciosesion-tab">
         <div class="card bg-light text-dark">
@@ -449,7 +417,7 @@
                 <div class="card-body">             
                   <div class="titulo text-center ">Regístrate</div><br>
                   <h6 class="card-title text-center">Complete los campos</h6>
-                  <form action ="{{route('clientes.store2')}}" method="POST" id="" >
+                  <form action ="" method="POST" id="" >
                     @csrf 
                     @method('POST')
                     <div class="input-group ">

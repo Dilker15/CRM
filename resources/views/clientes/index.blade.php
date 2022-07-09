@@ -12,14 +12,7 @@
             <div class="card-title">
                 Clientes:
             </div>
-            <div class="pull-right">
-                <a href="{{route('clientes.create')}}" class="btn btn-sm btn-warning float-right">
-                    <i class="fa fa-plus"></i>
-                    &nbsp;
-                    Agregar Nuevo Cliente
-                </a>
-            </div>
-           
+         
         </div>
         @if(session('success'))
         <div class="alert alert-success" role="alert">
@@ -34,7 +27,7 @@
     @endif
         
         <div class="card-body table-responsive">
-            <table id="miTabla"  class="table table-striped table-bordered" style="width:100%">
+            <table id="miTabla"  class="table table-striped table-bordered table-hover" style="width:100%">
                 <thead>
                     <tr>
                         <th>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Cliente;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cliente\Cliente;
+use App\Models\Promocion;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
@@ -97,7 +98,7 @@ class ClienteController extends Controller
         $persona_id= $cliente->id;
         $this->crearUsuario1($inputs['nombre'],$email,$contraseña,$rol_id,$persona_id);
         
-       return redirect()->route('tienda.principal');
+       return redirect()->route('tienda');
      // return view('tienda.principal');
     }   
 
@@ -127,15 +128,32 @@ class ClienteController extends Controller
             ['email','=',$email],
             ['password', '=',$password],
           ])->get(); 
-          if(count($consulta)>=1 ){   
-        $nombre = DB::table('users')->where('email','=', $email)->value('name');
-        $id =DB::table('users')->where('email','=', $email)->value('id');
-        return redirect()->route('tienda',compact('nombre', 'id'));
+          if(count($consulta)>=1 ){  
+            $promociones = Promocion::all();
+            $calzados =  DB::table('calzado')->where('estado','=','Promocion')->get();
+            $calzados1 = DB::table('calzado')->where([['estado','=','Destacado'],['tipo', '=','mujer'],])->get();
+            $calzados2 = DB::table('calzado') ->where([['estado','=','Destacado'],['tipo', '=','hombre'],])->get();
+            $hombres =   DB::table('calzado')->where('tipo','=','hombre')->get();   
+            $niños =     DB::table('calzado') ->where('tipo','=','kidman')->get();
+            $mujeres =   DB::table('calzado')->where('tipo','=','mujer')->get();   
+            $niñas =     DB::table('calzado') ->where('tipo','=','kidwoman')->get(); 
+
+            $nombre = DB::table('users')->where('email','=', $email)->value('name');
+            $id =DB::table('users')->where('email','=', $email)->value('id');
+            return view('tienda.perfil',compact('calzados','calzados1','calzados2',
+                        'hombres','niños','mujeres','niñas','nombre','id','promociones'));
      //   return view('tienda.prueba',compact('nombre','id'));
+        }else{
+            return "Datos incorrectos";
         }
 
     }
     
+    public function pdf(){
+        $clientes = Cliente::get();
+        return view('clientes.pdf',compact('clientes'));
+
+    }
     public function SalirCliente(){
         
         $cerrar = "Logout";
